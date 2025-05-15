@@ -1,0 +1,64 @@
+:imagesdir: ../images
+:jbake-menu: -
+// header file for req42-framework,
+// including all help texts
+//
+// ====================================
+
+include::.tpo42asciidoctorconfig.adoc[]
+
+= image:req42-logo.png[req42] Framework
+
+include::req42-chapters/about-req42.adoc[]
+
+// horizontal line
+***
+
+[role="req42help"]
+****
+[NOTE]
+====
+This version of the framework contains help texts and explanations. It is meant to familiarize yourself with the framework.
+For your own documentation better use the _plain_ Version.
+====
+****
+
+
+// numbering from here on
+:numbered:
+
+<<<<
+include::req42-chapters/01_business-goals.adoc[]
+
+<<<<
+include::req42-chapters/02_stakeholder.adoc[]
+
+<<<<
+include::req42-chapters/03_scope.adoc[]
+
+<<<<
+include::req42-chapters/04_product-backlog.adoc[]
+
+<<<<
+include::req42-chapters/05_supporting-models.adoc[]
+
+<<<<
+include::req42-chapters/06_quality-requirements.adoc[]
+
+<<<<
+include::req42-chapters/07_constraints.adoc[]
+
+<<<<
+include::req42-chapters/08_domain-terminology.adoc[]
+
+<<<<
+include::req42-chapters/09_assets.adoc[]
+
+<<<<
+include::req42-chapters/10_teams.adoc[]
+
+<<<<
+include::req42-chapters/11_roadmap.adoc[]
+
+<<<<
+include::req42-chapters/12_risks-assumptions.adoc[]

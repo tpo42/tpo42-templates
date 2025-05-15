@@ -1,0 +1,122 @@
+[[section-building-block-view]]
+
+
+== Building Block View
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+=== Whitebox Overall System
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+_**<Overview Diagram>**_
+
+Motivation::
+
+_<text explanation>_
+
+
+Contained Building Blocks::
+_<Description of contained building block (black boxes)>_
+
+Important Interfaces::
+_<Description of important interfaces>_
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+==== <Name black box 1>
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+_<Purpose/Responsibility>_
+
+_<Interface(s)>_
+
+_<(Optional) Quality/Performance Characteristics>_
+
+_<(Optional) Directory/File Location>_
+
+_<(Optional) Fulfilled Requirements>_
+
+_<(optional) Open Issues/Problems/Risks>_
+
+
+
+
+==== <Name black box 2>
+
+_<black box template>_
+
+==== <Name black box n>
+
+_<black box template>_
+
+
+==== <Name interface 1>
+
+...
+
+==== <Name interface m>
+
+
+
+=== Level 2
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+==== White Box _<building block 1>_
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+_<white box template>_
+
+==== White Box _<building block 2>_
+
+
+_<white box template>_
+
+...
+
+==== White Box _<building block m>_
+
+
+_<white box template>_
+
+
+
+=== Level 3
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+==== White Box <_building block x.1_>
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+_<white box template>_
+
+
+==== White Box <_building block x.2_>
+
+_<white box template>_
+
+
+
+==== White Box <_building block y.1_>
+
+_<white box template>_

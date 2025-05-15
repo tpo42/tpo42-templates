@@ -1,0 +1,39 @@
+[[section-quality-requirements]]
+== Quality Requirements
+
+[role="req42help"]
+****
+.Content
+Quality requirements are the "how" to the "what" - qualitative definitions or precisions of the functional requirements.
+
+.Motivation
+Our experience shows: Quality requirements are (unfortunately) still severely underestimated, not only in the agile world. Everyone wants good quality products and services, but only a few make it explicit what exactly is meant by this.
+
+Some quality requirements (such as response times) can perhaps be integrated directly into a story (or added as an acceptance criterion). However, the vast majority of quality requirements relate to many, if not all, of the functional requirements in the product backlog.
+
+Therefore, as a product owner, you need somewhere to specify and assign the desired qualities of your products and services. For this activity, industry-proven checklists (such as ISO 25010 and others) are available to help you quickly identify and manage the most important categories.
+
+.Notations/Tools
+Simple textual scenarios, possibly structured according to the sections of Q42, or the ISO 25010 quality tree, or according to VOLERE.
+
+// .More Information
+//
+// https://docs.req42.de/section-xxx in the online documentation
+
+****
+
+_< quality requirement or scenario 1>_ :
+_<Link to functional requirements or scope for this quality >_
+
+_< quality requirement or scenario 2>_ :
+_<Link to functional requirements or scope for this quality >_
+
+_< quality requirement or scenario 3>_ :
+_<Link to functional requirements or scope for this quality >_
+
+ .
+ .
+ .
+
+_< quality requirement or scenario n>_ :
+_<Link to functional requirements or scope for this quality >_

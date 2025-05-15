@@ -1,0 +1,7 @@
+[[section-architecture-constraints]]
+== Architecture Constraints
+
+
+ifdef::arc42help[]
+
+endif::arc42help[]

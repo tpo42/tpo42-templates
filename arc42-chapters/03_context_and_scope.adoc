@@ -1,0 +1,29 @@
+[[section-context-and-scope]]
+== Context and Scope
+
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+=== Business Context
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+**<Diagram or Table>**
+
+**<optionally: Explanation of external domain interfaces>**
+
+=== Technical Context
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+**<Diagram or Table>**
+
+**<optionally: Explanation of technical interfaces>**
+
+**<Mapping Input/Output to Channels>**

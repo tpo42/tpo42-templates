@@ -1,0 +1,31 @@
+[[section-introduction-and-goals]]
+== Introduction and Goals
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+=== Requirements Overview
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+=== Quality Goals
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+=== Stakeholders
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name|Contact|Expectations
+| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
+| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|===

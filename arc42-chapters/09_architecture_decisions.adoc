@@ -1,0 +1,7 @@
+[[section-design-decisions]]
+== Architecture Decisions
+
+
+ifdef::arc42help[]
+
+endif::arc42help[]

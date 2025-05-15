@@ -1,0 +1,71 @@
+:imagesdir: ../images
+:jbake-menu: -
+// header file for arc42-template,
+// including all help texts
+//
+// ====================================
+
+// configure EN settings for asciidoc
+include::.tpo42asciidoctorconfig.adoc[]
+
+= image:arc42-logo.png[arc42] Template
+
+include::arc42-chapters/about-arc42.adoc[]
+
+// horizontal line
+***
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+// numbering from here on
+:numbered:
+
+<<<<
+// 1. Introduction and Goals
+include::arc42-chapters/01_introduction_and_goals.adoc[]
+
+<<<<
+// 2. Architecture Constraints
+include::arc42-chapters/02_architecture_constraints.adoc[]
+
+<<<<
+// 3. Context and Scope
+include::arc42-chapters/03_context_and_scope.adoc[]
+
+<<<<
+// 4. Solution Strategy
+include::arc42-chapters/04_solution_strategy.adoc[]
+
+<<<<
+// 5. Building Block View
+include::arc42-chapters/05_building_block_view.adoc[]
+
+<<<<
+// 6. Runtime View
+include::arc42-chapters/06_runtime_view.adoc[]
+
+<<<<
+// 7. Deployment View
+include::arc42-chapters/07_deployment_view.adoc[]
+
+<<<<
+// 8. Concepts
+include::arc42-chapters/08_concepts.adoc[]
+
+<<<<
+// 9. Architecture Decisions
+include::arc42-chapters/09_architecture_decisions.adoc[]
+
+<<<<
+// 10. Quality Requirements
+include::arc42-chapters/10_quality_requirements.adoc[]
+
+<<<<
+// 11. Technical Risks
+include::arc42-chapters/11_technical_risks.adoc[]
+
+<<<<
+// 12. Glossary
+include::arc42-chapters/12_glossary.adoc[]

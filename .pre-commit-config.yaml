@@ -1,0 +1,75 @@
+default_install_hook_types:
+  - pre-commit
+  - prepare-commit-msg
+  - commit-msg
+  - post-checkout
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: destroyed-symlinks
+        stages: [pre-commit, pre-push]
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: no-commit-to-branch
+        args:
+          - --pattern
+          - '^(?!((feature|hotfix|release)\/[a-zA-Z0-9\-\/]+)|main$).*'
+          - --branch
+          - ""
+      - id: pretty-format-json
+        args:
+          - --autofix
+          - --indent
+          - '4'
+          - --no-sort-keys
+      - id: trailing-whitespace
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args:
+          - --baseline
+          - .secrets.baseline
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        args: []
+  - repo: https://github.com/python-jsonschema/check-jsonschema.git
+    rev: 0.33.0
+    hooks:
+      - id: check-gitlab-ci
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        additional_dependencies:
+          - mdformat-gfm
+        args:
+          - "--wrap=120"
+  - repo: https://github.com/jorisroovers/gitlint.git
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
+      - id: gitlint-ci

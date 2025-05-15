@@ -1,0 +1,34 @@
+[[section-constraints]]
+== Constraints
+
+[role="req42help"]
+****
+.Content
+Technological or organizational (mandated) constraints for the development process, such as mandatory activities, prescribed documents and their content, milestones to be met, ...
+
+.Motivation
+Such constraints are also requirements. And since they often apply to several or even all functional requirements, they are difficult to accommodate in the ordered product backlog. Just make sure that all stakeholders know these constraints and have access to them when needed.
+
+.Form
+Simple lists, possibly organized by category.
+
+// .More Information
+//
+// https://docs.req42.de/section-xxx in the online documentation
+
+****
+
+=== 7.1 Organizational Constraints
+*  _<OrgConstraint1>_
+
+*  _<OrgConstraint2>_
+
+* _<OrgContraint3>_
+
+=== 7.2 Technical Constraints
+
+*   _<TechConstraint1>_
+
+*  _<TechConstraint2>_
+
+* _<TechContraint3>_

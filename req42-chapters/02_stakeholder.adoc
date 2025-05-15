@@ -1,0 +1,37 @@
+[[section-stakeholder]]
+== Stakeholder
+
+[role="req42help"]
+****
+.Content
+A (prioritized) list of your stakeholders, along with indications of where these stakeholders can help (or hinder) the analysis work.
+
+.Motivation
+Stakeholders are the most important sources for requirements. Therefore, you should know and document them. You need to know who can help you with what or hinder you in what way.
+You need to know who has what influence - and if opinions differ, you need to mediate or decide.
+Without explicitly identified stakeholders, all this is difficult.
+
+.Notations/Tools
+
+* Tables or lists (simple form)
+*  Possibly stakeholder map (more complex form)
+
+Below we have included a simple stakeholder list as an example.
+
+The order "role before person" has been chosen deliberately. This order has proven itself since requirements normally always represent needs from the perspective of a role, but the person taking on the role can change during the project.
+
+If required, you can also add further columns (contact data, ...) - but consider the effort for their maintenance.
+
+// .More Information
+//
+// https://docs.req42.de/section-xxx in the online documentation
+
+****
+
+[cols="1,2,1,1" options="header"]
+|===
+|Role        |Person       |Topic        |Influence
+| _<Role-1>_ |_<Person-1>_ | _<Topic-1>_ | _<Influence-1>
+| _<Role-2>_ |_<Person-2>_ | _<Topic-2>_ | _<Influence-2>
+|            |             |             |
+|===

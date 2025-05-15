@@ -1,0 +1,17 @@
+[[section-glossary]]
+== Glossary
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+[cols="e,2e" options="header"]
+|===
+|Term |Definition
+
+|<Term-1>
+|<definition-1>
+
+|<Term-2>
+|<definition-2>
+|===

@@ -1,0 +1,38 @@
+[[section-scope]]
+== Scope
+
+[role="req42help"]
+****
+.Content
+Your product with all external interfaces to (human and automated) neighbors, resp. neighboring systems.
+
+
+.Motivation
+Scope is the area that you can influence. The environment of the product, to which there are certainly many interfaces, represents the context. The context cannot (usually) be decided by you alone, but can often be negotiated. To gain clarity it is important to describe both as much as possible and especially to define the boundary between the two scopes.
+
+req42 recommends that you start with the business scope and do not limit the product scope too early. The decision about the product scope should be a conscious one.
+Read more about this indispensable topic in the blog post "Scope is not equal to Scope" or in [2]. In our courses, you will practice scope delimitation using a realistic case study.
+
+.Notations/Tools
+There are many different means of expression for representing scope delineation, but a good scope delineation makes the interfaces to the context explicit (e.g., in terms of inputs and outputs, of services provided and required, ...).
+
+* Various forms of context diagrams
+* Context chart
+
+// .More Information
+//
+// https://docs.req42.de/section-xxx in the online documentation
+
+****
+
+Insert <<Context diagram>> or <<Context table>> here.
+
+Optional: add table with explanations of interfaces:
+
+[cols="1,5" options="header"]
+|===
+| Interface Name | Meaning/Explanation
+| _<IF-1>_       |_<Meaning-1>_
+| _<IF-2>_       |_<Meaning-2>_
+|                |
+|===

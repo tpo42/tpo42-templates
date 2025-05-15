@@ -1,0 +1,23 @@
+[[section-concepts]]
+== Cross-cutting Concepts
+
+
+ifdef::arc42help[]
+
+endif::arc42help[]
+
+=== _<Concept 1>_
+
+_<explanation>_
+
+
+
+=== _<Concept 2>_
+
+_<explanation>_
+
+...
+
+=== _<Concept n>_
+
+_<explanation>_

@@ -1,0 +1,42 @@
+[[section-risks-assumptions]]
+== Risks & Assumptions
+
+[role="req42help"]
+****
+.Content
+(Prioritized) lists of risks you have identified and a list of assumptions you have made as a basis for decisions.
+
+.Motivation
+"Risk management is project management for adults" says Tim Lister of the Atlantic Systems Guild".
+
+With this in mind, you should keep your risks under control as a product owner.
+
+req42 provides you with the means to consciously manage risks. Especially when prioritizing your requirements you should balance business value and risk reduction.
+
+.Notations/Tools
+Simple tables or lists are often already sufficient.
+
+// .More Information
+//
+// https://docs.req42.de/section-xxx in the online documentation
+
+****
+
+=== 12.1. Risks
+
+
+[cols="1,3,1,1,3 " options="header"]
+|===
+|Id |Text  | Probability |Damage Amount | Possible Measures
+|   |      |             |              |
+|   |      |             |              |
+|===
+
+=== 12.2. Assumptions
+
+[cols="1,5" options="header"]
+|===
+|Id |Text
+|   |
+|   |
+|===

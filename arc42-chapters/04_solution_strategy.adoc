@@ -1,0 +1,7 @@
+[[section-solution-strategy]]
+== Solution Strategy
+
+
+ifdef::arc42help[]
+
+endif::arc42help[]

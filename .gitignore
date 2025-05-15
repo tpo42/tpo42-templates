@@ -1,0 +1,7 @@
+.*.sw?
+*.bak
+*~
+build/
+.gradle/
+.vscode/
+*.pdf
