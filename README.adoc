@@ -4,3 +4,24 @@ bundled arc42 and req42 framework for sharing benefits in Stakeholder communicat
 
 See https://github.com/Hruschka/req42-framework/[req42-framework] or https://github.com/arc42/arc42-template[arc42-template]
 See also https://github.com/aim42/aim42[aim42], the Architecture Improvement Method, for ideas how to proceed.
+
+== Usage
+
+Take a first look by e.g.
+
+```
+dtcw docker generatePDF
+```
+
+To start building your own documentation upon this:
+
+```
+cp -r tpo42-templates your-shiny-project
+cd your-shiny-project
+rm -r .git
+git init
+...
+```
+
+You can later apply made improvements to the template by simply
+`git am ...` chosen commits.
