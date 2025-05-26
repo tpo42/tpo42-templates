@@ -24,6 +24,15 @@ Proven (regardless of granularity) for epics, features and user stories is the f
 
        As <role> I want <functionality> so that <advantage>.
 
+Especially for detailed items (stories, bug reports, tasks, ...), https://martinfowler.com/bliki/GivenWhenThen.html[behavior focused notation] delivers excellent results, because it allows implementation and test being derived from such a descriprion:
+
+       GIVEN <situation, pre-condition>
+         AND <constraint>
+        WHEN <use-case>
+        THEN <result-1>
+         AND <result-2>
+     SO THAT <advantage>
+
 For the more abstract levels (epics, features), compound nouns may also be suitable for describing functionality.
 
 Use ALM tools or ticket systems (JIRA or Azure DevOps) or wikis (like Confluence) to manage your epics, features and stories (linked and ordered).
@@ -34,40 +43,93 @@ A two-dimensional representation of the product backlog in the form of a story m
 //
 // https://docs.req42.de/section-xxx in the online documentation
 
+[plantuml,{plantUMLDir}/requirements-backlog-influence,png]
+----
+@startuml
+' !option handwritten true
+skinparam handwritten true
+
+rectangle "Business Perspective\n(Management)" #line.dashed {
+  rectangle "Vision" as vision #D4AF37
+  rectangle "Goal" as goal #87CEFA
+}
+
+rectangle "Product Perspective" #line.dashed {
+  rectangle "Epic" as epic #9370DB
+  rectangle "Feature" as feature #EE82EE
+  rectangle "Story" as story #32CD32
+  rectangle "Task" as task #ADFF2F
+}
+
+vision -> goal
+goal -d-> epic
+epic -> feature
+feature -> story
+story -> task
+
+rectangle "Surrounding Perspective" #line.dashed {
+  rectangle "Environment" as environment #A9A9A9
+  rectangle "Quality Goal" as quality_goal #ADD8E6
+}
+
+rectangle "Technical Perspective" #line.dashed {
+  rectangle "Architecture Manifesto" as am #FA8072
+  rectangle "Architectural Decision" as ad #FFA07A
+  rectangle "Constraint" as constraint #FF6347
+}
+
+am -u-> constraint
+ad -u-> constraint
+environment -u-> constraint
+
+constraint -u-> epic
+quality_goal -u-> epic
+
+@enduml
+----
+
 ****
 
-EPIC 1: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+[options="header",cols="1,1,6",stripes=even]
+|===
+|Type|Item|Description
+a| image:Goal.png[G]
 
-FEATURE 1.1: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| 1
 
-STORY 1.1.1: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| Identify first goal to reach, key success goal
 
-STORY 1.1.x.:As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+Purpose: ...
+Measure: ...
+Advantage: ...
 
-EPIC 2: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| image:Epic.png[E]
 
-FEATURE 2.1: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| 1.1
 
-STORY 2.1.1: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| As <role> I want <functionality> so that <advantage>.
 
-STORY 2.1.2: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| image:Feature.png[F]
 
-FEATURE 2.2: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| 1.1.1
 
-STORY 2.2.1: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| As <role> I want <functionality> so that <advantage>.
 
-STORY 2.2.2: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| image:Story.png[S]
 
-EPIC 3: As _<role>_ I want _<functionality>_ so that _<advantage>_.
-_<optional: Link to models>_.
+| 1.1.1.1
+
+| GIVEN <situation, pre-condition>
+AND <constraint>
+WHEN <use-case>
+THEN <result-1>
+AND <result-2>
+SO THAT <advantage>
+
+| image:Task.png[T]
+
+| 1.1.1.1.1
+
+| To provide <result-1> satisfy <using-interface>
+
+|===
