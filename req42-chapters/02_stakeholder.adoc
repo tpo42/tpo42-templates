@@ -28,10 +28,11 @@ If required, you can also add further columns (contact data, ...) - but consider
 
 ****
 
-[cols="1,2,1,1" options="header"]
+//tag::stakeholder_table[]
+[cols="1,1,2,2" options="header",stripes=even]
 |===
 |Role        |Person       |Topic        |Influence
 | _<Role-1>_ |_<Person-1>_ | _<Topic-1>_ | _<Influence-1>
 | _<Role-2>_ |_<Person-2>_ | _<Topic-2>_ | _<Influence-2>
-|            |             |             |
 |===
+//end::stakeholder_table[]
