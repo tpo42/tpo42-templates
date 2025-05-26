@@ -17,3 +17,149 @@ endif::arc42help[]
 ifdef::arc42help[]
 
 endif::arc42help[]
+
+=== Quality Matrix
+
+[options="header",cols="1,2,4"]
+|===
+|Category|Goal|Description
+
+.3+h| Functional Suitability
+
+| Functional Completness
+a|
+
+| Functional Correctness
+a|
+
+| Functional Appropriateness
+a|
+
+.4+h| Reliability
+
+| Faultlessness
+a|
+
+| Availability
+a|
+
+| Fault Tolerance
+a|
+
+| Recoverability
+a|
+
+.6+h| Security
+
+| Confidentiality
+a|
+
+| Integrity
+a|
+
+| Non-repudiation
+a|
+
+| Accountability
+a|
+
+| Authenticity
+a|
+
+| Resistance
+a|
+
+.4+h| Flexibility
+
+| Adaptability
+a|
+
+| Scalability
+a|
+
+| Installability
+a|
+
+| Replaceability
+a|
+
+.5+h| Maintainability
+
+| Modularity
+a|
+
+| Reusability
+a|
+
+| Analysability
+a|
+
+| Modifiability
+a|
+
+| Testability
+a|
+
+.3+h| Performance Efficiency
+
+| Time Behaviour
+a|
+
+| Resource Utilization
+a|
+
+| Capacity
+a|
+
+.8+h| Interaction Capability
+
+| Appropriateness recognizability
+a|
+
+| Learnability
+a|
+
+| Operability
+a|
+
+| User error protection
+a|
+
+| User engagement
+a|
+
+| Inclusivity
+a|
+
+| User assistance
+a|
+
+| Self-descriptiveness
+a|
+
+.2+h| Compatibility
+
+| Co-existence
+a|
+
+| Interoperability
+a|
+
+.5+h| Safety
+
+| Operational constraint
+a|
+
+| Risk identification
+a|
+
+| Fail safe
+a|
+
+| Hazard warning
+a|
+
+| Safe integration
+a|
+
+|===
