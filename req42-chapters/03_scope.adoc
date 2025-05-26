@@ -29,10 +29,9 @@ Insert <<Context diagram>> or <<Context table>> here.
 
 Optional: add table with explanations of interfaces:
 
-[cols="1,5" options="header"]
+[cols="1,5" options="header",stripes=even]
 |===
 | Interface Name | Meaning/Explanation
 | _<IF-1>_       |_<Meaning-1>_
 | _<IF-2>_       |_<Meaning-2>_
-|                |
 |===
