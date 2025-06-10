@@ -1,0 +1,97 @@
+name: Run docToolchain
+
+on:
+  workflow_call:
+    secrets:
+      dtc-bearertoken:
+        required: false
+        description: Authentication Token for confluence, alternative to username/password
+    inputs:
+      dtc-configfile:
+        type: string
+        required: false
+        description: (Main) configuration file for docToolchain
+        default: "docToolchainConfig.groovy"
+      dtc-docdir:
+        type: string
+        required: false
+        description: directory containing main configuration file for docToolchain
+        default: "."
+      dtc-headless:
+        type: string
+        required: false
+        description: Whether docToolchain runs in headless mode or not
+        default: true
+      dtc-process-targets:
+        type: string
+        required: true
+        description: One or more of tasks of https://doctoolchain.org/docToolchain/v2.0.x/015_tasks/03_tasks.html
+      dtc-extra-arguments:
+        type: string
+        required: false
+        description: Docker image registry to use (including trailing '/')
+        default: "--warning-mode=none --no-daemon -Dfile.encoding=UTF-8"
+      dtc-output-pattern:
+        type: string
+        required: false
+        description: directory containing output
+      image-registry:
+        type: string
+        required: false
+        description: Docker image registry to use (including trailing '/')
+      image-name:
+        type: string
+        required: false
+        description: Docker image name
+        default: doctoolchain/doctoolchain-with-pandoc
+      image-version:
+        type: string
+        required: false
+        description: pre-commit version to use (including leading ':')
+        default: ":v3.4.1"
+
+jobs:
+  doctoolchain:
+    container:
+      image: ${{ inputs.image-registry }}${{ inputs.image-name }}${{ inputs.image-version }}
+      options: --user 1001
+      env:
+        HOME: /home/dtcuser
+    permissions:
+      contents: read
+      packages: read
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          set-safe-directory: "*"
+
+      - name: Process dtc target
+        shell: bash
+        env:
+          DTC_HEADLESS: ${{ inputs.dtc-headless }}
+        run: |
+          set -x
+          cd "${{ inputs.dtc-docdir }}"
+
+          for process_target in ${{ inputs.dtc-process-targets }}
+          do
+            DTC_CMD="doctoolchain . ${process_target}"
+            if test "${{ secrets.dtc-bearertoken }}" != ""
+            then
+                DTC_CMD="${DTC_CMD} -PconfluenceBearerToken=${{ secrets.dtc-bearertoken }}"
+            fi
+            DTC_CMD="${DTC_CMD} -PmainConfigFile=${{ inputs.dtc-configfile }}"
+            DTC_CMD="${DTC_CMD} ${{ inputs.dtc-extra-arguments }}"
+
+            ${DTC_CMD}
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.dtc-output-pattern != '' }}
+        with:
+          name: ${{ github.event.repository.name }}
+          path: ${{ inputs.dtc-output-pattern }}
+          if-no-files-found: error
