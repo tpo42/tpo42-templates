@@ -1,0 +1,19 @@
+name: build docs on push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  create-docs:
+    uses: rehsack/tpo42-templates/.github/workflows/run-doctoolchain.yml@feature/doctoolchain-build
+    secrets: inherit # pragma: allowlist secret
+    with:
+      dtc-process-targets: generatePDF generateHTML
+      dtc-output-pattern: build/
