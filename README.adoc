@@ -1,27 +1,151 @@
 = tpo42 Framework
 
-bundled arc42 and req42 framework for sharing benefits in Stakeholder communication and Team guidance.
+Technical Product Owner documentation templates combining arc42 architecture and req42 requirements frameworks
 
-See https://github.com/Hruschka/req42-framework/[req42-framework] or https://github.com/arc42/arc42-template[arc42-template]
-See also https://github.com/aim42/aim42[aim42], the Architecture Improvement Method, for ideas how to proceed.
+== Synopsis
 
-== Usage
-
-Take a first look by e.g.
-
-```
+[source,bash]
+----
+# Generate PDF documentation
 dtcw docker generatePDF
-```
 
-To start building your own documentation upon this:
+# Generate HTML documentation
+dtcw docker generateHTML
 
-```
+# Publish to Confluence
+dtcw docker publishToConfluence
+----
+
+For complete list of available tasks, see https://doctoolchain.org/docToolchain/v2.0.x/015_tasks/03_tasks.html[docToolchain documentation].
+
+=== Installation
+
+==== New Repository
+
+[source,bash]
+----
+# Clone template
 cp -r tpo42-templates your-shiny-project
 cd your-shiny-project
-rm -r .git
-git init
-...
-```
 
-You can later apply made improvements to the template by simply
-`git am ...` chosen commits.
+# Initialize as new repository
+rm -rf .git
+git init
+git add .
+git commit -s -m "docs: initial setup with tpo42 framework ..."
+----
+
+==== Existing Repository
+
+Copy the framework files into your existing project:
+
+[source,bash]
+----
+# Copy core framework files
+cp -r tpo42-templates/{.tpo42asciidoctorconfig.adoc,arc42.adoc,arc42-chapters,req42.adoc,req42-chapters,docToolchainConfig.groovy,images} \
+  your-shiny-project/
+
+# copy pre-commit
+cp tpo42-templates/{.pre-commit-config.yaml,.yamllint,.gitlint} your-shiny-project/
+
+cd your-shiny-project
+
+git add arc42.adoc \
+  arc42-chapters/[01]*.adoc \
+  req42.adoc \
+  req42-chapters/[01]*.adoc \
+  docToolchainConfig.groovy \
+  images/{arc,req}42-logo.png
+git status # Review remaining files and decide
+git commit -s -m "docs: import tpo42 framework ..."
+
+# same for pre-commit
+pre-commit install
+detect-secrets scan > .secrets.baseline
+git add .pre-commit-config.yaml .yamllint .gitlint .secrets.baseline
+git commit -s -m "docs: introduce pre-commit ..."
+----
+
+Apply future template improvements via:
+[source,bash]
+----
+git --git-dir=/path/to/tpo42-templates/.git am [chosen-commits]
+----
+
+== Description
+
+The **Technical Product Owner (TPO)** bridges product management and technical architecture - either a Product Owner with deep technical understanding or an Architect with strong product focus. This role requires balancing business value delivery with architectural excellence.
+
+The **tpo42 Framework** combines two proven methodologies:
+
+* **req42**: Agile requirements engineering framework for stakeholder-focused product development
+* **arc42**: Architecture documentation standard for technical decision transparency
+
+=== Concept
+
+Since projects typically start with gathering business ideas, arc42 chapters source content from req42 templates.
+
+[source,adoc]
+----
+include::../req42-chapters/01_business-goals.adoc[tag=vision]
+----
+
+The req42 framework is enhanced at key points with tagged sections:
+
+[source,adoc]
+----
+//tag::vision[]
+=== Vision
+Condensed goal summary in one or two (ideally) motivating sentences.
+//end::vision[]
+----
+
+This follows the Single Source of Truth paradigm where documentation is embedded in code (both at API level via doxygen, javadoc, rst, pod, etc.) as well as requirements and architecture. The approach generally focuses on GitOps and Documentation as Code principles.
+
+=== Framework Structure
+
+Requirements (req42)::
+Business goals, stakeholder analysis, product backlog, quality requirements, constraints, domain terminology, teams, and roadmap planning.
+
+Architecture (arc42)::
+Introduction and goals, architecture constraints, context and scope, solution strategy, building blocks, runtime and deployment views, cross-cutting concepts, architecture decisions, quality requirements, risks, and glossary.
+
+Integration Benefits::
+
+* Requirements traceability to architectural decisions
+* Business context for technical choices
+* Stakeholder communication across business and technical domains
+* Consistent documentation approach from vision to implementation
+
+=== Target Audience
+
+This framework is designed for experienced practitioners:
+
+* Technical Product Owners managing complex product architectures
+* Software Architects involved in product strategy
+* Senior Product Managers in technical organizations
+* Architecture teams requiring product context
+
+== References
+
+* https://req42.de/[req42 Framework] - Requirements engineering for agile teams
+* https://arc42.org/[arc42 Template] - Architecture documentation standard
+* https://aim42.github.io/[aim42] - Architecture improvement method
+
+== Authors
+
+=== tpo42
+
+Jens Rehsack
+
+=== req42
+
+Created and maintained by Dr. Peter Hruschka, Markus Meuten and contributors.
+
+=== arc42
+
+Created, maintained and (C) by Dr. Peter Hruschka, Dr. Gernot Starke and contributors.
+
+== License
+
+include::license.txt[]
