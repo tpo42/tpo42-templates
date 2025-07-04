@@ -1,0 +1,32 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background like req42 -->
+  <rect width="120" height="60" fill="white" stroke="#e0e0e0" stroke-width="0.5" rx="4"/>
+
+  <!-- Custom elliptical arc - starts thin, gets thicker, 45° cut -->
+  <defs>
+    <mask id="cutMask">
+      <rect width="120" height="60" fill="white"/>
+      <!-- 45° cut in upper right -->
+      <polygon points="90,0 120,0 120,30" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Elliptical arc - both start at same point -->
+  <path d="M12 50 Q30 15 60 8 Q80 5 100 10 Q110 8 115 5"
+        stroke="#4472C4"
+        stroke-width="1"
+        fill="none"
+        mask="url(#cutMask)"/>
+  <path d="M12 50 Q34 21 60 16 Q76 13 96 15 Q106 8 109 9"
+        stroke="#4472C4"
+        stroke-width="3"
+        fill="none"
+        mask="url(#cutMask)"/>
+
+  <!-- TPO text aligned with bezier start baseline -->
+  <text x="35" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="black">tpo</text>
+
+  <!-- Red 42 superscript style -->
+  <circle cx="70" cy="35" r="8" fill="#C5504B"/>
+  <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">42</text>
+</svg>

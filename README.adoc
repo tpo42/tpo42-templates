@@ -1,4 +1,4 @@
-= tpo42 Framework
+= image:images/tpo42-logo.png[tpo42] Framework
 
 Technical Product Owner documentation templates combining arc42 architecture and req42 requirements frameworks
 
