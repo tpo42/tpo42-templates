@@ -1,29 +1,18 @@
 [[section-context-and-scope]]
 == Context and Scope
 
-
-ifdef::arc42help[]
-
-endif::arc42help[]
-
 === Business Context
 
-ifdef::arc42help[]
-
-endif::arc42help[]
-
-**<Diagram or Table>**
-
-**<optionally: Explanation of external domain interfaces>**
+include::../req42-chapters/03_scope.adoc[tag=business_context]
 
 === Technical Context
 
-ifdef::arc42help[]
+// **<Diagram or Table>**
 
-endif::arc42help[]
+// **<optionally: Explanation of technical interfaces>**
 
-**<Diagram or Table>**
+// **<Mapping Input/Output to Channels>**
 
-**<optionally: Explanation of technical interfaces>**
+=== Organisational Context
 
-**<Mapping Input/Output to Channels>**
+include::../req42-chapters/10_teams.adoc[tag=teams_overview]

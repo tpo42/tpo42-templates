@@ -14,21 +14,71 @@ Simple lists, possibly organized by category.
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#7 in the online documentation
+
+.tpo42 Integration
+Constraints defined here will become technical constraints in arc42 Chapter 2 (Architecture Constraints). Organizational constraints may influence solution strategy and architectural decisions.
 
 ****
 
-=== 7.1 Organizational Constraints
-*  _<OrgConstraint1>_
+//tag::organizational_constraints[]
+=== Organizational Constraints
 
-*  _<OrgConstraint2>_
+Timeline Constraints:: _<Project deadlines, milestone requirements>_ (→ Link to Roadmap Chapter 11)
 
-* _<OrgContraint3>_
+Change Management:: _<Stability requirements, legacy system considerations, migration constraints>_
 
-=== 7.2 Technical Constraints
+Documentation Standards:: _<Required documentation frameworks, compliance requirements>_
 
-*   _<TechConstraint1>_
+Budget Constraints:: _<Financial limitations affecting solution choices>_
 
-*  _<TechConstraint2>_
+Team Constraints:: _<Team size, skill limitations, resource availability>_
 
-* _<TechContraint3>_
+Process Constraints:: _<Mandatory development processes, approval workflows>_
+//end::organizational_constraints[]
+
+//tag::technical_constraints[]
+=== Technical Constraints
+
+==== Physical Infrastructure
+
+Communication Interfaces:: _<Hardware communication protocols, cable specifications, signal requirements>_
+
+Environmental Conditions:: _<Operating temperature, humidity, vibration, electromagnetic compatibility>_
+
+Power Constraints:: _<Power consumption limits, battery life requirements, power supply specifications>_
+
+==== Technology Stack
+
+Platform Constraints:: _<Required operating systems, hardware platforms, processor architectures>_
+
+Software Dependencies:: _<Mandatory frameworks, libraries, legacy system integrations>_
+
+Security Requirements:: _<Encryption standards, authentication mechanisms, compliance requirements>_
+
+==== Performance Boundaries
+
+Processing Limits:: _<CPU, memory, storage limitations>_
+
+Network Constraints:: _<Bandwidth limitations, latency requirements, protocol restrictions>_
+
+Real-time Requirements:: _<Timing constraints, deterministic behavior requirements>_
+//end::technical_constraints[]
+
+//tag::human_perception_constraints[]
+=== Human Perception Constraints
+
+==== User Interface Limitations
+
+Perception Thresholds:: _<Visual, auditory, tactile perception limits relevant to product design>_
+
+Accessibility Requirements:: _<ADA compliance, internationalization, diverse user capabilities>_
+
+Ergonomic Constraints:: _<Physical interaction limitations, safety requirements>_
+
+==== Operational Context
+
+Environmental Factors:: _<Lighting conditions, noise levels, workspace constraints affecting usability>_
+
+User Expertise Levels:: _<Skill level assumptions, training constraints, learning curve limitations>_
+//end::human_perception_constraints[]

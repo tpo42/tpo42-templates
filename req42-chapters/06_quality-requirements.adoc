@@ -13,27 +13,152 @@ Some quality requirements (such as response times) can perhaps be integrated dir
 
 Therefore, as a product owner, you need somewhere to specify and assign the desired qualities of your products and services. For this activity, industry-proven checklists (such as ISO 25010 and others) are available to help you quickly identify and manage the most important categories.
 
+.Approach
+Start with the ISO 25010 quality model mindmap below. Focus only on quality aspects that are relevant to your business goals from Chapter 1. Remove all irrelevant categories - be ruthless in cutting what doesn't matter for your specific product and goals.
+
 .Notations/Tools
 Simple textual scenarios, possibly structured according to the sections of Q42, or the ISO 25010 quality tree, or according to VOLERE.
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#6 in the online documentation
+
+.tpo42 Integration
+Quality requirements defined here will be filtered and prioritized:
+* Top 3-5 most architecturally critical quality goals → arc42 Chapter 1 Section 3 (Quality Goals)
+* Complete detailed quality requirements → arc42 Chapter 10 (Quality Requirements)
 
 ****
 
-_< quality requirement or scenario 1>_ :
-_<Link to functional requirements or scope for this quality >_
+//tag::quality_goals[]
+=== ISO 25010 Quality Model Overview
 
-_< quality requirement or scenario 2>_ :
-_<Link to functional requirements or scope for this quality >_
+[role="req42help"]
+****
+Use this as a checklist and starting point. Remove quality characteristics that are not relevant to your business goals.
+****
 
-_< quality requirement or scenario 3>_ :
-_<Link to functional requirements or scope for this quality >_
+.ISO 25010 Quality Characteristics
+[plantuml,{plantUMLDir}/iso25010-quality-model,png]
+----
+@startmindmap
+!theme plain
+skinparam mindmapDiagram {
+  node {
+    backgroundColor lightblue
+  }
+  rootNode {
+    backgroundColor lightgreen
+  }
+}
 
- .
- .
- .
+* ISO 25010\nQuality Model
+** Functional Suitability
+*** Functional Completeness
+*** Functional Correctness
+*** Functional Appropriateness
+** Performance Efficiency
+*** Time Behaviour
+*** Resource Utilization
+*** Capacity
+** Compatibility
+*** Co-existence
+*** Interoperability
+** Usability
+*** User Interface Aesthetics
+*** Accessibility
+*** Learnability
+*** User Error Protection
+*** User Engagement
+** Reliability
+*** Maturity
+*** Availability
+*** Fault Tolerance
+*** Recoverability
+** Security
+*** Confidentiality
+*** Integrity
+*** Non-repudiation
+*** Accountability
+*** Authenticity
+** Maintainability
+*** Modularity
+*** Reusability
+*** Analysability
+*** Modifiability
+*** Testability
+** Portability
+*** Adaptability
+*** Installability
+*** Replaceability
+@endmindmap
+----
 
-_< quality requirement or scenario n>_ :
-_<Link to functional requirements or scope for this quality >_
+=== Quality Requirements
+
+[role="req42help"]
+****
+For each relevant quality characteristic from the ISO 25010 model above, define specific requirements using the structured format below. Link each requirement back to the business goals that drive it.
+****
+
+==== _<Quality Characteristic 1>_
+
+Business Requirement::
+_<Specific quality requirement in measurable terms>_
+
+Business Justification::
+_<Reference to business goal(s) from Chapter 1 and background/context>_
+
+Acceptance Criteria::
+* _<Scenario 1: Given... When... Then...>_
+* _<Scenario 2: Measurable criteria>_
+* _<Scenario 3: Performance targets>_
+
+Business Impact if not achieved::
+* _<Customer impact>_
+* _<Business impact>_
+* _<Technical impact>_
+* _<Market impact>_
+
+---
+
+==== _<Quality Characteristic 2>_
+
+Business Requirement::
+_<Specific quality requirement in measurable terms>_
+
+Business Justification::
+_<Reference to business goal(s) from Chapter 1 and background/context>_
+
+Acceptance Criteria::
+* _<Scenario 1: Given... When... Then...>_
+* _<Scenario 2: Measurable criteria>_
+* _<Scenario 3: Performance targets>_
+
+Business Impact if not achieved::
+* _<Customer impact>_
+* _<Business impact>_
+* _<Technical impact>_
+* _<Market impact>_
+
+---
+
+==== _<Quality Characteristic 3>_
+
+Business Requirement::
+_<Specific quality requirement in measurable terms>_
+
+Business Justification::
+_<Reference to business goal(s) from Chapter 1 and background/context>_
+
+Acceptance Criteria::
+* _<Scenario 1: Given... When... Then...>_
+* _<Scenario 2: Measurable criteria>_
+* _<Scenario 3: Performance targets>_
+
+Business Impact if not achieved::
+* _<Customer impact>_
+* _<Business impact>_
+* _<Technical impact>_
+* _<Market impact>_
+//end::quality_goals[]

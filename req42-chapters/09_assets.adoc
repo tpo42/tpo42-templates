@@ -14,20 +14,173 @@ If you take on the job as a product owner you have to negotiate these assets wit
 In any case, you should know what you have at your disposal in terms of money, personnel, time, infrastructure, ... at your disposal. These assets are an essential boundary condition for your work as a product owner.
 
 .Notations/Tools
-Simple lists or tables
+Simple lists or tables. For role definitions, consider different formats:
+* Simple format: Role description with responsibilities
+* RACI matrix: Responsible, Accountable, Consulted, Informed
+* CAIRO matrix: Consulted, Accountable, Informed, Responsible, Omitted (https://de.wikipedia.org/wiki/RACI)
 
 // .More Information
 //
 // https://docs.req42.de/section-xxx in the online documentation
 
+.tpo42 Integration
+Role definitions here should align with the solution strategy from arc42 Chapter 4. Technology choices drive required skills and team composition.
+
 ****
 
-=== 9.1 Budget
-(possibly structured according to roadmap or intermediate goals, or divided into personnel budget, material budget, ...)
+//tag::budget[]
+=== Budget
 
-=== 9.2 Time frame/final date
+Budget covers development resources for:
 
-=== 9.3 Team members
-(simple enumeration of team members for small team.  Or a link to complex team structure in section 10).
+Personnel costs:: Development team and technical roles
+Infrastructure:: Development tools, testing equipment, workspace
+Production setup:: Initial prototyping and testing capabilities
+External resources:: Third-party services, consulting, outsourcing
+//end::budget[]
 
-=== 9.4 External resources
+//tag::human_resources[]
+=== Human Resources
+
+==== Team Member Availability
+
+[role="req42help"]
+****
+.Content
+Resource planning and capacity allocation. This complements stakeholder information from Chapter 2 by focusing on availability and capacity rather than roles and responsibilities.
+****
+
+[cols="1,2,1",options="header",stripes=even]
+|===
+|Member |Role |Capacity
+| _<Person-1>_ | _<Role-1>_ | _<Percentage/Hours per week>_
+| _<Person-2>_ | _<Role-2>_ | _<Percentage/Hours per week>_
+| _<Person-3>_ | _<Role-3>_ | _<Percentage/Hours per week>_
+|===
+
+==== Role Definitions
+
+[role="req42help"]
+****
+.Content
+Detailed skill requirements and responsibilities for roles needed based on solution strategy. These roles should be derived from architectural decisions and technology choices made in arc42 Chapter 4.
+
+.Motivation
+Technology choices (Qt vs. web technologies, embedded vs. cloud-native) determine required skill sets. Define these requirements clearly to ensure proper team composition and identify skill gaps.
+****
+
+===== _<Role Name 1>_
+
+[cols="1,3",options="header",stripes=even]
+|===
+2+| _<Role Description and Purpose>_
+
+| Responsibility
+a|
+* _<Key responsibility 1>_
+* _<Key responsibility 2>_
+* _<Key responsibility 3>_
+
+| Skills Required
+a|
+* _<Technical skill 1>_
+* _<Technical skill 2>_
+* _<Domain knowledge requirement>_
+* _<Experience level requirement>_
+|===
+
+===== _<Role Name 2>_
+
+[cols="1,3",options="header",stripes=even]
+|===
+2+| _<Role Description and Purpose>_
+
+| Responsibility
+a|
+* _<Key responsibility 1>_
+* _<Key responsibility 2>_
+* _<Key responsibility 3>_
+
+| Skills Required
+a|
+* _<Technical skill 1>_
+* _<Technical skill 2>_
+* _<Domain knowledge requirement>_
+* _<Experience level requirement>_
+|===
+//end::human_resources[]
+
+//tag::technical_infrastructure[]
+=== Technical Infrastructure
+
+[role="req42help"]
+****
+.Content
+Impediment management for technical resources. Identify gaps and available equipment to prevent development blockers.
+
+.Motivation
+Technical infrastructure gaps can block development progress. Early identification enables proactive procurement or workaround planning.
+****
+
+==== Critical Equipment Gaps
+
+[cols="1,2,1",options="header",stripes=even]
+|===
+|Equipment/Tool |Purpose |Impact if not available
+| _<Missing equipment 1>_ | _<What it's needed for>_ | _<Development impact>_
+| _<Missing equipment 2>_ | _<What it's needed for>_ | _<Development impact>_
+|===
+
+==== Available Development Equipment
+
+[cols="1,2,1",options="header",stripes=even]
+|===
+|Equipment/Tool |Purpose |Availability
+| _<Available equipment 1>_ | _<What it's used for>_ | _<Access conditions>_
+| _<Available equipment 2>_ | _<What it's used for>_ | _<Access conditions>_
+|===
+
+==== Development Infrastructure
+
+Toolchain and CI/CD::
+* _<Build systems, version control, continuous integration tools>_
+* _<Development environment setup>_
+
+Quality Assurance Infrastructure::
+* _<Testing environments, test automation tools>_
+* _<Code quality, security scanning tools>_
+//end::technical_infrastructure[]
+
+//tag::external_resources[]
+=== External Resources
+
+[role="req42help"]
+****
+.Content
+Everything external that the project depends on but doesn't have an inventory number - from manufacturing partners to cloud services to consulting support.
+****
+
+==== Component Suppliers
+
+[cols="1,2,1",options="header",stripes=even]
+|===
+|Supplier |Components/Services |Dependency Level
+| _<Supplier 1>_ | _<What they provide>_ | _<Critical/Important/Nice-to-have>_
+| _<Supplier 2>_ | _<What they provide>_ | _<Critical/Important/Nice-to-have>_
+|===
+
+==== Development Support
+
+[cols="1,2,1",options="header",stripes=even]
+|===
+|Service Provider |Support Type |Availability
+| _<Provider 1>_ | _<Consulting, training, support>_ | _<Contract terms, hours>_
+| _<Provider 2>_ | _<Consulting, training, support>_ | _<Contract terms, hours>_
+|===
+
+==== External Services
+
+Cloud Services:: _<AWS, Azure, GCP services and access levels>_
+Third-party APIs:: _<External API dependencies and rate limits>_
+Licensing:: _<Required software licenses and compliance>_
+//end::external_resources[]

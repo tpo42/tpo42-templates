@@ -1,9 +1,8 @@
 [[section-business-goals]]
-==	Business Goals
+== Business Goals
 
 //tag::vision[]
 === Vision
-//end::vision[]
 
 [role="req42help"]
 ****
@@ -20,13 +19,17 @@ https://youtu.be/kKOqOMqp7wQ?t=383[Agile Companies Go P.O.P.]
 
 // .More Information
 //
-//
+// https://docs.req42.de/category_a/#1 in the online documentation
+
+.tpo42 Integration
+This vision will be included in arc42 Chapter 1 (Introduction and Goals) to provide business context for architectural decisions.
 
 ****
-//tag::vision[]
+
 Condensed goal summary in one or two (ideally) motivating sentences.
 //end::vision[]
 
+//tag::business_goals[]
 === Goals
 
 [role="req42help"]
@@ -39,7 +42,6 @@ The business objectives of your product development or project. Short and concis
 Goals must be specified and agreed upon to the point where everyone involved has a clear idea of what is to be accomplished and in what time frames. Establishing vision and goals guides the team in developing detailed requirements and avoids fragmentation.
 
 Perhaps your clients gave you rough goals or a vision when they entrusted you with the role of product owner. Often, however, the precision of these specifications is not enough to lead a team systematically to success.
-
 
 .Notations/Tools
 A wide variety of means of expression are available for defining goals, which you can choose according to your mood.
@@ -59,27 +61,77 @@ There is only one thing you should never do: Work without explicit goals or visi
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#1 in the online documentation
+
+.tpo42 Integration
+Business goals directly influence:
+
+* arc42 Chapter 1: Requirements overview and quality goals derivation
+* arc42 Chapter 2: Business constraints that become technical constraints
+* arc42 Chapter 10: Quality requirements derived from business measures
+* arc42 Chapter 11: Technical risks related to business goal achievement
 
 ****
 
-Goal definitions according to PAM:
+.Goal definitions according to PAM
+[options="header",cols="1,2,12",stripes=even]
+|===
+|No
+2+|Goal
 
-Goal 1:
+.4+| 1
+2+| _<Goal Name 1>_
 
-Advantage 1:
+| Purpose
+| _<What do you want to achieve and why?>_
 
-Metric 1:
+| Advantage
+a|
+* _<Benefit 1>_
+* _<Benefit 2>_
+* _<Benefit 3>_
 
+| Measure
+a|
+* _<Measurable criterion 1>_
+* _<Measurable criterion 2>_
+* _<Measurable criterion 3>_
 
-Goal 2:
+.4+| 2
+2+| _<Goal Name 2>_
 
-Advantage 2:
+| Purpose
+| _<What do you want to achieve and why?>_
 
-Metric 2:
+| Advantage
+a|
+* _<Benefit 1>_
+* _<Benefit 2>_
+* _<Benefit 3>_
 
-Goal 3:
+| Measure
+a|
+* _<Measurable criterion 1>_
+* _<Measurable criterion 2>_
+* _<Measurable criterion 3>_
 
-Advantage 3:
+.4+| 3
+2+| _<Goal Name 3>_
 
-Metric 3:
+| Purpose
+| _<What do you want to achieve and why?>_
+
+| Advantage
+a|
+* _<Benefit 1>_
+* _<Benefit 2>_
+* _<Benefit 3>_
+
+| Measure
+a|
+* _<Measurable criterion 1>_
+* _<Measurable criterion 2>_
+* _<Measurable criterion 3>_
+
+|===
+//end::business_goals[]

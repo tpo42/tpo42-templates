@@ -1,7 +1,7 @@
 [[section-domain-terminology]]
 == Domain Terminology
 
-[role="re42help"]
+[role="req42help"]
 ****
 .Content
 A glossary of technical terms with definitions. The "ubiquitous language" of your domain
@@ -11,15 +11,21 @@ Terms from your domain appear in every epic, feature, or story. These terms shou
 
 Make sure that everyone involved speaks a common language - and has access to agreed-upon definitions of terms instead of bringing new words into play in every meeting.
 
+Focus on domain terms that Product Management and neighboring Product Owners need to understand for cross-team communication. Include only terms requiring superficial understanding for business context. Exclude technical implementation details that only developers need to know.
+
 .Notations/Tools
 Alphabetically ordered list of term definitions
 
-
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#8 in the online documentation
+
+.tpo42 Integration
+Domain terminology for Product Management and cross-team Product Owner communication is maintained here. Technical implementation terms (protocols, algorithms, detailed technical concepts) that developers need belong in arc42 Chapter 12 (Glossary).
+
 ****
 
+//tag::domain_terms[]
 [cols="12,50" options="header"]
 |===
 |Term |Definition
@@ -27,3 +33,4 @@ Alphabetically ordered list of term definitions
 | _<Term-2>_ |_<Definition-2>_
 |            |
 |===
+//end::domain_terms[]

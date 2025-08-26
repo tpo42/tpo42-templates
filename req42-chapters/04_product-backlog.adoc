@@ -41,8 +41,28 @@ A two-dimensional representation of the product backlog in the form of a story m
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#4 in the online documentation
 
+.tpo42 Integration
+Product backlog items are influenced by architectural decisions and strategic choices:
+
+* arc42 Chapter 4 (Solution Strategy): Technical approach influences feature breakdown and implementation complexity
+* arc42 Chapter 9 (Architecture Decisions): Technical constraints affect story sizing and dependencies
+* req42 Chapter 11 (Roadmap): Strategic timeline drives backlog prioritization
+
+****
+
+[[roadmap-overview]]
+Insert overview from roadmap
+
+[[backlog-details]]
+=== Backlog Details
+Insert Epic/Feature -> Story diagrams per topic
+
+[[backlog-legend]]
+=== Legend & Structure
+
+.Product Backlog Structure Overview
 [plantuml,{plantUMLDir}/requirements-backlog-influence,png]
 ----
 @startuml
@@ -88,48 +108,25 @@ quality_goal -u-> epic
 @enduml
 ----
 
-****
+**Color Coding:**
 
-[options="header",cols="1,1,6",stripes=even]
-|===
-|Type|Item|Description
-a| image:Goal.png[G]
+* **Purple (#9370DB)**: Epics - High-level capabilities
+* **Violet (#EE82EE)**: Features - team/product/component scope
+* **Green (#32CD32)**: Stories/Tasks - team/product/component scope
+* **Light Pink (#FFEEEE)**: External dependencies (neighbor team/product/component)
+* **Red (#FF4444)**: Critical features (Production deadline)
+* **Gold (#FFD700)**: Milestones - Key delivery dates
 
-| 1
+**Visual Indicators:**
 
-| Identify first goal to reach, key success goal
+* **Solid rectangles**: team scope
+* **Dotted rectangles**: External dependencies (neighbor team)
+* **Dotted arrows**: Interface dependencies between teams
 
-Purpose: ...
-Measure: ...
-Advantage: ...
+**Status Symbols:**
 
-| image:Epic.png[E]
-
-| 1.1
-
-| As <role> I want <functionality> so that <advantage>.
-
-| image:Feature.png[F]
-
-| 1.1.1
-
-| As <role> I want <functionality> so that <advantage>.
-
-| image:Story.png[S]
-
-| 1.1.1.1
-
-| GIVEN <situation, pre-condition>
-AND <constraint>
-WHEN <use-case>
-THEN <result-1>
-AND <result-2>
-SO THAT <advantage>
-
-| image:Task.png[T]
-
-| 1.1.1.1.1
-
-| To provide <result-1> satisfy <using-interface>
-
-|===
+* **[x]**: Review - Code complete, under review
+* **[!]**: In Progress - Active development
+* **[?]**: Ready/Bereit - Prepared for development
+* **[-]**: To Do - Defined but not started
+* **[X]**: BLOCKED - Dependency blocking progress

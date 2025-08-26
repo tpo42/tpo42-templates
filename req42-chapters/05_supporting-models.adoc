@@ -27,7 +27,7 @@ Simple modeling tools like Gliffy, Diagrams.Net (formerly DrawIO), ......, or DS
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#5 in the online documentation
 ****
 
 _<Diagram Title 1:>_. _<insert diagram and explanations here >_ _<optional: Link to Epics, Features or Stories>_

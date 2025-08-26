@@ -20,23 +20,74 @@ Simple tables or lists are often already sufficient.
 //
 // https://docs.req42.de/section-xxx in the online documentation
 
+.tpo42 Integration
+Business risks identified here complement technical risks in arc42 Chapter 11 (Technical Risks). Risk mitigation strategies may influence architectural decisions and solution strategy.
+
 ****
 
-=== 12.1. Risks
+//tag::risks[]
+=== Risks
 
+[cols="1,3,1,1,3,3" options="header"]
+|===
+|Id |Description | Probability |Impact | Possible Measures | Possible Mitigations
 
-[cols="1,3,1,1,3 " options="header"]
-|===
-|Id |Text  | Probability |Damage Amount | Possible Measures
-|   |      |             |              |
-|   |      |             |              |
-|===
+| R1
+| _<Risk description>_
+| _<High\|Medium\|Low>_
+| _<High\|Medium\|Low>_
+a|
+* _<Measure 1>_
+* _<Measure 2>_
+* _<Measure 3>_
+a|
+* _<Mitigation 1>_
+* _<Mitigation 2>_
+* _<Mitigation 3>_
 
-=== 12.2. Assumptions
+| R2
+| _<Risk description>_
+| _<High\|Medium\|Low>_
+| _<High\|Medium\|Low>_
+a|
+* _<Measure 1>_
+* _<Measure 2>_
+a|
+* _<Mitigation 1>_
+* _<Mitigation 2>_
 
-[cols="1,5" options="header"]
+| R3
+| _<Risk description>_
+| _<High\|Medium\|Low>_
+| _<High\|Medium\|Low>_
+a|
+* _<Measure 1>_
+* _<Measure 2>_
+a|
+* _<Mitigation 1>_
+* _<Mitigation 2>_
+
 |===
-|Id |Text
-|   |
-|   |
+//end::risks[]
+
+//tag::assumptions[]
+=== Assumptions
+
+[cols="1,4,3" options="header"]
 |===
+|Id |Description | Validation/Verification
+
+| A1
+| _<Assumption description>_
+| _<How to validate this assumption>_
+
+| A2
+| _<Assumption description>_
+| _<How to validate this assumption>_
+
+| A3
+| _<Assumption description>_
+| _<How to validate this assumption>_
+
+|===
+//end::assumptions[]

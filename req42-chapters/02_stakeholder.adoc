@@ -14,7 +14,7 @@ Without explicitly identified stakeholders, all this is difficult.
 .Notations/Tools
 
 * Tables or lists (simple form)
-*  Possibly stakeholder map (more complex form)
+* Possibly stakeholder map (more complex form)
 
 Below we have included a simple stakeholder list as an example.
 
@@ -24,7 +24,10 @@ If required, you can also add further columns (contact data, ...) - but consider
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#2 in the online documentation
+
+.tpo42 Integration
+Stakeholder information will be included in arc42 Chapter 1 (Introduction and Goals) to provide context for architectural stakeholders and their concerns.
 
 ****
 
@@ -32,7 +35,50 @@ If required, you can also add further columns (contact data, ...) - but consider
 [cols="1,1,2,2" options="header",stripes=even]
 |===
 |Role        |Person       |Topic        |Influence
-| _<Role-1>_ |_<Person-1>_ | _<Topic-1>_ | _<Influence-1>
-| _<Role-2>_ |_<Person-2>_ | _<Topic-2>_ | _<Influence-2>
+| _<Role-1>_ |_<Person-1>_ | _<Topic-1>_ | _<Influence-1>_
+| _<Role-2>_ |_<Person-2>_ | _<Topic-2>_ | _<Influence-2>_
+| _<Role-3>_ |_<Person-3>_ | _<Topic-3>_ | _<Influence-3>_
+| _<Role-4>_ |_<Person-4>_ | _<Topic-4>_ | _<Influence-4>_
 |===
 //end::stakeholder_table[]
+
+//tag::stakeholder_diagram[]
+=== Stakeholder Relationships
+
+[role="req42help"]
+****
+.Content
+Optional visual representation of stakeholder relationships and communication flows.
+
+.Motivation
+Understanding stakeholder relationships can help identify communication paths and potential conflicts.
+
+.Notations/Tools
+* Simple organizational diagrams
+* Stakeholder maps
+* Network diagrams
+
+****
+
+.Stakeholder Organization
+[plantuml,{plantUMLDir}/stakeholder-organization,png]
+----
+@startuml
+skinparam defaultTextAlignment center
+skinparam shadowing false
+!include <tupadr3/common>
+!include <office/Users/user>
+!include <office/Users/users>
+
+OFF_USER(SPONSOR, "Sponsor\n<Person>")
+OFF_USER(PM, "Product Manager\n<Person>")
+OFF_USER(TECH_LEAD, "Technical Lead\n<Person>")
+OFF_USERS(TEAM, "Development Team")
+
+SPONSOR -down- PM
+PM -down- TECH_LEAD
+TECH_LEAD -down- TEAM
+
+@enduml
+----
+//end::stakeholder_diagram[]

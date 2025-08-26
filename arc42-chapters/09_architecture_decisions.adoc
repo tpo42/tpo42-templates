@@ -1,7 +1,48 @@
 [[section-design-decisions]]
 == Architecture Decisions
+=== ADR-XXX: [Decision Title]
 
+[Context description paragraph]
 
-ifdef::arc42help[]
-
-endif::arc42help[]
+// [options="header",cols="1,1",stripes=even]
+// |===
+// ^h|Pro ^h|Contra
+// 2+^s|[Option 1 Name]
+// 2+|[Option 1 Description]
+// a|
+//
+// * [Pro point 1]
+// * [Pro point 2]
+// * [Pro point 3]
+//
+// a|
+//
+// * [Contra point 1]
+// * [Contra point 2]
+//
+// 2+^|[Option 2 Name]
+// 2+|[Option 2 Description]
+// a|
+//
+// * [Pro point 1]
+// * [Pro point 2]
+//
+// a|
+//
+// * [Contra point 1]
+// * [Contra point 2]
+// * [Contra point 3]
+//
+// 2+^|[Option 3 Name]
+// 2+|[Option 3 Description]
+// a|
+//
+// * [Pro point 1]
+// * [Pro point 2]
+//
+// a|
+//
+// * [Contra point 1]
+// * [Contra point 2]
+//
+// |===

@@ -13,6 +13,14 @@ If you have more than one team at your disposal, it goes without saying that you
 
 The focus should be on (sub-)teams being organized in such a way that they can deliver functions/features or partial products as independently as possible without having to constantly coordinate with everyone else.
 
+.Team Organization Options
+Modern organizations typically use:
+
+* **Product Teams (vertical)**: Cross-functional teams with end-to-end product responsibility
+* **Communities of Practice (CoPs/Guilds)**: Horizontal knowledge sharing for cross-cutting concerns (security, compliance, architecture)
+* **Dedicated Service Teams**: Specialized teams providing services to product teams (legal, PMO, platform teams)
+* **Hybrid Approaches**: Combination based on organizational needs
+
 .Notations/Tools
 Lists of teams (each with assigned people and assigned topics from the roadmap or from the product backlog (e.g., epics or features).
 
@@ -20,20 +28,142 @@ Lists of teams (each with assigned people and assigned topics from the roadmap o
 //
 // https://docs.req42.de/section-xxx in the online documentation
 
+.tpo42 Integration
+Team structure influences architectural decisions and should align with solution strategy from arc42 Chapter 4. Team boundaries often become system boundaries (Conway's Law).
+
 ****
 
-[cols="1,2,2" options="header"]
-|===
-|Team |Team Members |Feature
-.3+| _<Team-1>_
-|PO: _<Person-1>_
-.3+| _<Feature-A>_
+//tag::teams_overview[]
+=== Product Teams
 
-| Dev: _<Team member-2>_
-| Dev: _<Team member-3>_
+[role="req42help"]
+****
+.Content
+Vertically integrated teams responsible for complete product features or components. Each team should be able to deliver independently with minimal cross-team coordination.
+****
 
-.2+| _<Team-2>_
-|PO: <Person-2>_
-.2+| _<Feature-B>_
-| Dev: _<Team member-2>_
+[cols="1,2,2" options="header",stripes=even]
 |===
+|Team |Team Members |Feature/Product Area
+
+.3+| _<Product Team 1>_
+|PO: _<Product Owner Name>_
+.3+| _<Feature Area A>_
+| Dev: _<Developer 1>_
+| Dev: _<Developer 2>_
+
+.4+| _<Product Team 2>_
+|PO: _<Product Owner Name>_
+.4+| _<Feature Area B>_
+| Dev: _<Frontend Developer>_
+| Dev: _<Backend Developer>_
+| QA: _<Quality Assurance>_
+
+.2+| _<Product Team 3>_
+|PO: _<Product Owner Name>_
+.2+| _<Feature Area C>_
+| Dev: _<Full-stack Developer>_
+
+|===
+
+=== Cross-functional Support
+
+[role="req42help"]
+****
+.Content
+Support structure for cross-cutting concerns. Choose between Communities of Practice (knowledge sharing) or dedicated service teams based on organizational needs.
+****
+
+==== Communities of Practice
+
+[cols="1,2,2" options="header",stripes=even]
+|===
+|Community |Specialists |Service Area
+
+| _<Security Guild>_ | _<Security Expert 1, Developer 2, Developer 5>_ | _<Security best practices, threat modeling>_
+| _<Architecture CoP>_ | _<Architect 1, Senior Dev 3, Senior Dev 7>_ | _<Architecture standards, technology decisions>_
+| _<UX Community>_ | _<UX Designer 1, Frontend Dev 2, Product Owner 1>_ | _<User experience, design systems>_
+
+|===
+
+==== Dedicated Service Teams
+
+[cols="1,2,2" options="header",stripes=even]
+|===
+|Service Team |Team Members |Service Mission
+
+.2+| _<Platform Team>_
+|Lead: _<Platform Architect>_
+.2+| _<Developer tooling, CI/CD, infrastructure>_
+| Dev: _<DevOps Engineer>_
+
+.2+| _<Legal/Compliance>_
+|Lead: _<Legal Counsel>_
+.2+| _<Contract review, compliance, IP management>_
+| Specialist: _<Compliance Officer>_
+
+|===
+
+=== Team Collaboration Structure
+
+[role="req42help"]
+****
+.Content
+Optional visualization of team interactions and dependencies. Useful for understanding communication patterns and potential bottlenecks.
+****
+
+.Team Collaboration Overview
+[plantuml,{plantUMLDir}/team-collaboration,png]
+----
+@startuml
+skinparam defaultTextAlignment center
+skinparam shadowing false
+skinparam Rectangle {
+  borderColor transparent
+  backgroundColor transparent
+}
+!include <tupadr3/common>
+!include <office/Users/user>
+!include <office/Users/users>
+
+scale 0.7
+
+package "Product Team 1" {
+  OFF_USER(PO1, "Product Owner 1\nTeam Alpha")
+  OFF_USER(DEV1, "Developer 1\nTeam Alpha")
+  OFF_USER(DEV2, "Developer 2\nTeam Alpha")
+}
+
+package "Product Team 2" {
+  OFF_USER(PO2, "Product Owner 2\nTeam Beta")
+  OFF_USER(FRONTEND, "Frontend Dev\nTeam Beta")
+  OFF_USER(BACKEND, "Backend Dev\nTeam Beta")
+}
+
+package "Support Structure" {
+  OFF_USER(PLATFORM, "Platform Team\nLead")
+  OFF_USER(SECURITY, "Security Guild\nExpert")
+  OFF_USER(ARCHITECT, "Architecture CoP\nLead")
+}
+
+' Team internal connections
+PO1 -- DEV1
+PO1 -- DEV2
+PO2 -- FRONTEND
+PO2 -- BACKEND
+
+' Cross-team collaboration
+DEV1 -[dashed]- FRONTEND : "API Integration"
+BACKEND -[dashed]- DEV2 : "Shared Services"
+
+' Support team connections
+PLATFORM -[dotted]- PO1 : "Platform Services"
+PLATFORM -[dotted]- PO2 : "Platform Services"
+SECURITY -[dotted]- DEV1 : "Security Review"
+SECURITY -[dotted]- BACKEND : "Security Review"
+ARCHITECT -[dotted]- PO1 : "Architecture Guidance"
+ARCHITECT -[dotted]- PO2 : "Architecture Guidance"
+
+@enduml
+----
+//end::teams_overview[]

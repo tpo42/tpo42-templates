@@ -6,7 +6,6 @@
 .Content
 Your product with all external interfaces to (human and automated) neighbors, resp. neighboring systems.
 
-
 .Motivation
 Scope is the area that you can influence. The environment of the product, to which there are certainly many interfaces, represents the context. The context cannot (usually) be decided by you alone, but can often be negotiated. To gain clarity it is important to describe both as much as possible and especially to define the boundary between the two scopes.
 
@@ -21,11 +20,19 @@ There are many different means of expression for representing scope delineation,
 
 // .More Information
 //
-// https://docs.req42.de/section-xxx in the online documentation
+// https://docs.req42.de/category_a/#3 in the online documentation
+
+.tpo42 Integration
+The business context and scope boundaries defined here will be directly used in:
+
+* arc42 Chapter 3 (Context & Scope): Business context becomes system context
+* arc42 Chapter 1 (Introduction): Scope boundaries clarify system responsibilities
+* arc42 Chapter 2 (Constraints): External interfaces may impose technical constraints
 
 ****
 
-Insert <<Context diagram>> or <<Context table>> here.
+//tag::business_context[]
+Insert _<Context diagram>_ or _<Context table>_ here.
 
 Optional: add table with explanations of interfaces:
 
@@ -34,4 +41,17 @@ Optional: add table with explanations of interfaces:
 | Interface Name | Meaning/Explanation
 | _<IF-1>_       |_<Meaning-1>_
 | _<IF-2>_       |_<Meaning-2>_
+|===
+//end::business_context[]
+
+=== Scope Boundaries
+
+// De-Scope here
+[cols="1,1", options="header",stripes=even]
+|===
+|Component |Responsible Team
+| _<comp-1>_ | _<team-1>_
+| _<comp-2>_ | _<team-2>_
+| _<comp-.>_ | _<team-.>_
+| _<comp-n>_ | _<team-n>_
 |===

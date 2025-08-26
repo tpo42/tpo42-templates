@@ -11,15 +11,70 @@ Agile projects also need a plan. The more distant a goal is, the less precise th
 
 An explicitly known roadmap enables all participants to coordinate with each other and to think along with each other, and therefore to take into account what is still to come in the medium term when making short-term decisions.
 
-If you only live from hand to mouth, you may unknowingly make short-term decisions that are contrary to longer-term product success. In our courses we show you how rough or fine a roadmap can, may or should be.
-
-.Notations/Tools
-Whatever you have in use as a planning tool or which allows you to present, if possible on one page, an appropriate overview over a longer period of time.
-
+If you only live from hand to mouth, you may unknowingly make short-term decisions that are contrary to longer-term product success.
 
 // .More Information
 //
 // https://docs.req42.de/section-xxx in the online documentation.
+
+.tpo42 Integration
+Roadmap drives backlog prioritization (Chapter 4) and influences team organization (Chapter 10). Timeline constraints become organizational constraints (Chapter 7).
 ****
 
-_< Insert your planning here>_
+//tag::timeline[]
+=== Development Timeline
+
+==== _<Time Period 1>_ (Immediate)
+
+[ditaa]
+----
++---------------------------+
+| Primary Deliverable       |
++---------------------------+
+       |             |
++-------------+ +-------------+
+| Component A | | Component B |
++-------------+ +-------------+
+----
+
+* _<Deliverable 1>_ - _<Description>_
+* _<Deliverable 2>_ - _<Description>_
+* _<Integration/Testing>_ - _<Validation>_
+
+==== _<Time Period 2>_ (Near-term)
+
+* _<Feature/Capability 1>_ - _<Focus area>_
+* _<Feature/Capability 2>_ - _<Focus area>_
+* _<Quality milestone>_ - _<Target>_
+
+==== _<Long-term Vision>_ (Strategic Goal)
+
+* _<Strategic objective>_ - _<Business outcome>_
+//end::timeline[]
+
+//tag::dependencies_risks[]
+=== Key Dependencies & Risks
+
+==== External Dependencies
+
+_<Dependency 1>_:: _<What we need and when>_
+_<Dependency 2>_:: _<What we need and when>_
+
+==== Blocked Items
+
+_<Blocked item 1>_:: _<What's blocking it>_
+_<Blocked item 2>_:: _<What's blocking it>_
+
+==== Critical Path
+
+_<Critical item 1>_:: _<Why it's critical>_
+_<Critical item 2>_:: _<Why it's critical>_
+//end::dependencies_risks[]
+
+//tag::success_criteria[]
+=== Success Criteria
+
+* [TARGET] _<Measurable outcome 1>_
+* [TARGET] _<Measurable outcome 2>_
+* [TARGET] _<Strategic milestone>_
+//end::success_criteria[]
