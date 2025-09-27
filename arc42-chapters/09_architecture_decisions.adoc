@@ -1,48 +1,142 @@
 [[section-design-decisions]]
 == Architecture Decisions
+
+ifdef::arc42help[]
+[role="arc42help"]
+****
+.Contents
+Important, expensive, large scale or risky architecture decisions including rationales.
+With "decisions" we mean selecting one alternative based on given criteria.
+
+Please use your judgement to decide whether an architectural decision should be documented
+here in this central section or whether you better document it locally
+(e.g. within the white box template of one building block).
+
+Avoid redundancy.
+Refer to section 4, where you already captured the most important decisions of your architecture.
+
+.Motivation
+Stakeholders of your system should be able to comprehend and retrace your decisions.
+
+.Form
+Various options:
+
+* ADR (Architecture Decision Records) for every important decision
+* List or table, ordered by importance and consequences or:
+* more detailed in form of separate sections per decision
+
+.tpo42 Integration
+Architecture decisions may be driven by business requirements (req42 business goals, quality requirements, constraints) or by technical preferences, team skills, or practical considerations. Link to business drivers when relevant.
+
+.Further Information
+
+* https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions[Documenting Architecture Decisions] (original ADR concept)
+* https://adr.github.io[Architecture Decision Records] (templates and community standards)
+
+****
+endif::arc42help[]
+
+//tag::decision_index[]
+=== Decision Index
+
+[role="arc42help"]
+****
+.Content
+Overview of all architecture decisions for quick reference and status tracking.
+****
+
+[cols="1,3,1,1" options="header"]
+|===
+|ADR # |Title |Status |Date
+| ADR-001 | _<Decision title>_ | _<Proposed/Accepted/Deprecated>_ | _<Date>_
+| ADR-002 | _<Decision title>_ | _<Proposed/Accepted/Deprecated>_ | _<Date>_
+| ADR-003 | _<Decision title>_ | _<Proposed/Accepted/Deprecated>_ | _<Date>_
+|===
+//end::decision_index[]
+
+//tag::decision_template[]
 === ADR-XXX: [Decision Title]
+
+==== Context
 
 [Context description paragraph]
 
-// [options="header",cols="1,1",stripes=even]
-// |===
-// ^h|Pro ^h|Contra
-// 2+^s|[Option 1 Name]
-// 2+|[Option 1 Description]
-// a|
-//
-// * [Pro point 1]
-// * [Pro point 2]
-// * [Pro point 3]
-//
-// a|
-//
-// * [Contra point 1]
-// * [Contra point 2]
-//
-// 2+^|[Option 2 Name]
-// 2+|[Option 2 Description]
-// a|
-//
-// * [Pro point 1]
-// * [Pro point 2]
-//
-// a|
-//
-// * [Contra point 1]
-// * [Contra point 2]
-// * [Contra point 3]
-//
-// 2+^|[Option 3 Name]
-// 2+|[Option 3 Description]
-// a|
-//
-// * [Pro point 1]
-// * [Pro point 2]
-//
-// a|
-//
-// * [Contra point 1]
-// * [Contra point 2]
-//
-// |===
+==== Decision
+
+[Final decision statement]
+
+==== Rationale
+
+[Explanation of why this decision was made, including trade-offs considered]
+
+==== Consequences
+
+**Positive:**
+* _<Benefit 1>_
+* _<Benefit 2>_
+
+**Negative:**
+* _<Risk/Limitation 1>_
+* _<Risk/Limitation 2>_
+//end::decision_template[]
+
+//tag::options_analysis[]
+=== ADR-XXX: [Decision with Options Analysis]
+
+==== Context
+
+[Context description]
+
+==== Options Considered
+
+[options="header",cols="1,1",stripes=even]
+|===
+^h|Pro ^h|Contra
+2+^s|[Option 1 Name]
+2+|[Option 1 Description]
+a|
+
+* [Pro point 1]
+* [Pro point 2]
+* [Pro point 3]
+
+a|
+
+* [Contra point 1]
+* [Contra point 2]
+
+2+^|[Option 2 Name]
+2+|[Option 2 Description]
+a|
+
+* [Pro point 1]
+* [Pro point 2]
+
+a|
+
+* [Contra point 1]
+* [Contra point 2]
+* [Contra point 3]
+
+2+^|[Option 3 Name]
+2+|[Option 3 Description]
+a|
+
+* [Pro point 1]
+* [Pro point 2]
+
+a|
+
+* [Contra point 1]
+* [Contra point 2]
+
+|===
+
+==== Decision
+
+[Selected option and rationale]
+
+==== Consequences
+
+[Impact of the decision]
+//end::options_analysis[]

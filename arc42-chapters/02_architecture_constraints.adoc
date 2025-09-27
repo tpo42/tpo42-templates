@@ -1,7 +1,65 @@
 [[section-architecture-constraints]]
 == Architecture Constraints
 
+ifdef::arc42help[]
+[role="arc42help"]
+****
+.Contents
+Any requirement that constraints software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
+
+.Motivation
+Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
+Constraints must always be dealt with; they may be negotiable, though.
+
+.Form
+Simple tables of constraints with explanations.
+If needed you can subdivide them into
+technical constraints, organizational and political constraints and
+conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
+
+.Decision Criteria (avoid duplications)
+Decide whether something is a constraint, scope boundary, or requirement:
+* **Constraint**: Unchangeable given that limits design freedom
+* **Interface/Scope**: Changeable boundary with multiple implementation options
+* **Requirement**: Functional need that the system must fulfill
+
+Use the bookshelf principle: include only the constraint categories relevant to your project.
+
+.tpo42 Integration
+Most constraints are defined in req42 Chapter 7 (Constraints). Include relevant sections and focus on their architectural impact. Add architecture-specific constraints that don't belong in the business requirements.
+
+.Further Information
+
+See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 documentation.
+
+****
+endif::arc42help[]
+
+include::../req42-chapters/07_constraints.adoc[tag=organizational_constraints]
+
+include::../req42-chapters/07_constraints.adoc[tag=technical_constraints]
+
+include::../req42-chapters/07_constraints.adoc[tag=human_perception_constraints]
+
+=== Additional Architecture-Specific Constraints
 
 ifdef::arc42help[]
+[role="arc42help"]
+****
+.Content
+Constraints that are specific to the architectural perspective and not covered in req42 business constraints.
 
+.Examples
+* Programming language restrictions for specific components
+* Architecture patterns mandated by enterprise standards
+* Integration patterns required by existing systems
+* Deployment topology constraints
+****
 endif::arc42help[]
+
+[cols="1,3" options="header"]
+|===
+|Constraint |Architectural Impact
+| _<Architecture constraint 1>_ | _<How this limits design decisions>_
+| _<Architecture constraint 2>_ | _<How this limits design decisions>_
+|===

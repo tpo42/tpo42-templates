@@ -1,165 +1,90 @@
 [[section-quality-scenarios]]
 == Quality Requirements
 
-
 ifdef::arc42help[]
+[role="arc42help"]
+****
 
+.Content
+This section contains all relevant quality requirements.
+
+The most important of these requirements have already been described in section 1.2. (quality goals), therefore they should only be referenced here.
+In this section 10 you should also capture quality requirements with lesser importance, which will not create high risks when they are not fully achieved (but might be _nice-to-have_).
+
+.Motivation
+Since quality requirements will have a lot of influence on architectural decisions you should know what qualities are really important for your stakeholders, in a specific and measurable way.
+
+.tpo42 Integration
+Quality requirements are primarily defined in req42 Chapter 6 from business perspective. This section adds technical implementation details and architectural scenarios for those business requirements.
+
+Avoid duplicating business quality requirements here - include them from req42 and focus on the technical "how" rather than the business "why".
+
+.Further Information
+
+* See https://docs.arc42.org/section-10/[Quality Requirements] in the arc42 documentation.
+* See the extensive https://quality.arc42.org[Q42 quality model on https://quality.arc42.org].
+* See https://iso25000.com/index.php/en/iso-25000-standards/iso-25010[ISO/IEC 25010:2023 Systems and software engineering] (official standard)
+
+****
 endif::arc42help[]
 
-=== Quality Tree
+include::../req42-chapters/06_quality-requirements.adoc[tag=quality_goals]
+
+=== Technical Quality Scenarios
 
 ifdef::arc42help[]
+[role="arc42help"]
+****
 
+.Content
+Technical implementation scenarios for the business quality requirements defined in req42 Chapter 6.
+Focus on architectural and implementation details: protocols, algorithms, technical measures.
+
+.Form
+For each business quality requirement from req42, define technical scenarios:
+
+Technical Context:: Implementation environment, components affected
+Technical Stimulus:: Specific technical trigger or condition
+Technical Response:: System behavior in technical terms
+Technical Measure:: Measurable technical criteria (response time, throughput, etc.)
+
+****
 endif::arc42help[]
 
-=== Quality Scenarios
+==== _<Technical Scenario for Quality Requirement 1>_
+
+Business Requirement:: _<Reference to req42 Chapter 6 business requirement>_
+Technical Context:: _<Which components, under what technical conditions>_
+Technical Stimulus:: _<Specific technical event or load condition>_
+Technical Response:: _<How the system behaves technically>_
+Technical Measure:: _<Measurable technical criteria: <200ms, >99.5% uptime, etc.>_
+
+---
+
+==== _<Technical Scenario for Quality Requirement 2>_
+
+Business Requirement:: _<Reference to req42 Chapter 6 business requirement>_
+Technical Context:: _<Which components, under what technical conditions>_
+Technical Stimulus:: _<Specific technical event or load condition>_
+Technical Response:: _<How the system behaves technically>_
+Technical Measure:: _<Measurable technical criteria>_
+
+---
+
+=== Quality Requirements Summary
 
 ifdef::arc42help[]
-
+[role="arc42help"]
+****
+.Content
+Optional summary table linking business requirements to technical measures for quick reference.
+****
 endif::arc42help[]
 
-=== Quality Matrix
-
-[options="header",cols="1,2,4"]
+[cols="2,2,1,2" options="header"]
 |===
-|Category|Goal|Description
-
-.3+h| Functional Suitability
-
-| Functional Completness
-a|
-
-| Functional Correctness
-a|
-
-| Functional Appropriateness
-a|
-
-.4+h| Reliability
-
-| Faultlessness
-a|
-
-| Availability
-a|
-
-| Fault Tolerance
-a|
-
-| Recoverability
-a|
-
-.6+h| Security
-
-| Confidentiality
-a|
-
-| Integrity
-a|
-
-| Non-repudiation
-a|
-
-| Accountability
-a|
-
-| Authenticity
-a|
-
-| Resistance
-a|
-
-.4+h| Flexibility
-
-| Adaptability
-a|
-
-| Scalability
-a|
-
-| Installability
-a|
-
-| Replaceability
-a|
-
-.5+h| Maintainability
-
-| Modularity
-a|
-
-| Reusability
-a|
-
-| Analysability
-a|
-
-| Modifiability
-a|
-
-| Testability
-a|
-
-.3+h| Performance Efficiency
-
-| Time Behaviour
-a|
-
-| Resource Utilization
-a|
-
-| Capacity
-a|
-
-.8+h| Interaction Capability
-
-| Appropriateness recognizability
-a|
-
-| Learnability
-a|
-
-| Operability
-a|
-
-| User error protection
-a|
-
-| User engagement
-a|
-
-| Inclusivity
-a|
-
-| User assistance
-a|
-
-| Self-descriptiveness
-a|
-
-.2+h| Compatibility
-
-| Co-existence
-a|
-
-| Interoperability
-a|
-
-.5+h| Safety
-
-| Operational constraint
-a|
-
-| Risk identification
-a|
-
-| Fail safe
-a|
-
-| Hazard warning
-a|
-
-| Safe integration
-a|
-
+|Business Quality Goal |Technical Implementation |Priority |Measurement Method
+| _<Business requirement from req42>_ | _<Technical approach>_ | _<High/Medium/Low>_ | _<How to measure>_
+| _<Business requirement from req42>_ | _<Technical approach>_ | _<High/Medium/Low>_ | _<How to measure>_
+| _<Business requirement from req42>_ | _<Technical approach>_ | _<High/Medium/Low>_ | _<How to measure>_
 |===
