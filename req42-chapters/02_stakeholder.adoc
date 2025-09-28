@@ -1,7 +1,8 @@
 [[section-stakeholder]]
 == Stakeholder
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 A (prioritized) list of your stakeholders, along with indications of where these stakeholders can help (or hinder) the analysis work.
@@ -30,6 +31,7 @@ If required, you can also add further columns (contact data, ...) - but consider
 Stakeholder information will be included in arc42 Chapter 1 (Introduction and Goals) to provide context for architectural stakeholders and their concerns.
 
 ****
+endif::tpo42help[]
 
 //tag::stakeholder_table[]
 [cols="1,1,2,2" options="header",stripes=even]
@@ -45,7 +47,8 @@ Stakeholder information will be included in arc42 Chapter 1 (Introduction and Go
 //tag::stakeholder_diagram[]
 === Stakeholder Relationships
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Optional visual representation of stakeholder relationships and communication flows.
@@ -59,6 +62,7 @@ Understanding stakeholder relationships can help identify communication paths an
 * Network diagrams
 
 ****
+endif::tpo42help[]
 
 .Stakeholder Organization
 [plantuml,{plantUMLDir}/stakeholder-organization,png]

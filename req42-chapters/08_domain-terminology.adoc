@@ -1,7 +1,8 @@
 [[section-domain-terminology]]
 == Domain Terminology
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 A glossary of technical terms with definitions. The "ubiquitous language" of your domain
@@ -24,6 +25,7 @@ Alphabetically ordered list of term definitions
 Domain terminology for Product Management and cross-team Product Owner communication is maintained here. Technical implementation terms (protocols, algorithms, detailed technical concepts) that developers need belong in arc42 Chapter 12 (Glossary).
 
 ****
+endif::tpo42help[]
 
 //tag::domain_terms[]
 [cols="12,50" options="header"]

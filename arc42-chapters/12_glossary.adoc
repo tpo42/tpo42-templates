@@ -1,8 +1,8 @@
 [[section-glossary]]
 == Glossary
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 The most important domain and technical terms that your stakeholders use when discussing the system.
@@ -29,13 +29,14 @@ Focus on technical implementation terms that developers and architects need. Bus
 See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 include::../req42-chapters/08_domain-terminology.adoc[tag=domain_terms]
 
 === Technical Terms
 
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Technical implementation terms, protocols, algorithms, and architectural concepts that developers need to understand but are not relevant for business stakeholders.
@@ -46,6 +47,7 @@ Technical implementation terms, protocols, algorithms, and architectural concept
 * Architecture patterns (CQRS, Event Sourcing, Microservices)
 * Implementation details (thread pools, connection pooling, caching strategies)
 ****
+endif::tpo42help[]
 
 [cols="e,2e" options="header"]
 |===

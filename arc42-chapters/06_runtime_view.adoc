@@ -1,8 +1,8 @@
 [[section-runtime-view]]
 == Runtime View
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:
@@ -33,7 +33,7 @@ There are many notations for describing scenarios, e.g.
 See https://docs.arc42.org/section-6/[Runtime View] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 === <Runtime Scenario 1>
 

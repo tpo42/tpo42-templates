@@ -1,7 +1,8 @@
 [[section-teams]]
 == Teams
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 This section can be omitted for small product developments with only one development team, since the team members are already listed in the previous section.
@@ -32,15 +33,18 @@ Lists of teams (each with assigned people and assigned topics from the roadmap o
 Team structure influences architectural decisions and should align with solution strategy from arc42 Chapter 4. Team boundaries often become system boundaries (Conway's Law).
 
 ****
+endif::tpo42help[]
 
 //tag::teams_overview[]
 === Product Teams
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Vertically integrated teams responsible for complete product features or components. Each team should be able to deliver independently with minimal cross-team coordination.
 ****
+endif::tpo42help[]
 
 [cols="1,2,2" options="header",stripes=even]
 |===
@@ -68,11 +72,13 @@ Vertically integrated teams responsible for complete product features or compone
 
 === Cross-functional Support
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Support structure for cross-cutting concerns. Choose between Communities of Practice (knowledge sharing) or dedicated service teams based on organizational needs.
 ****
+endif::tpo42help[]
 
 ==== Communities of Practice
 
@@ -106,11 +112,13 @@ Support structure for cross-cutting concerns. Choose between Communities of Prac
 
 === Team Collaboration Structure
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Optional visualization of team interactions and dependencies. Useful for understanding communication patterns and potential bottlenecks.
 ****
+endif::tpo42help[]
 
 .Team Collaboration Overview
 [plantuml,{plantUMLDir}/team-collaboration,png]

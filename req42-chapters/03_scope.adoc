@@ -1,7 +1,8 @@
 [[section-scope]]
 == Scope
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Your product with all external interfaces to (human and automated) neighbors, resp. neighboring systems.
@@ -30,6 +31,7 @@ The business context and scope boundaries defined here will be directly used in:
 * arc42 Chapter 2 (Constraints): External interfaces may impose technical constraints
 
 ****
+endif::tpo42help[]
 
 //tag::business_context[]
 Insert _<Context diagram>_ or _<Context table>_ here.

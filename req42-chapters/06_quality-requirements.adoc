@@ -1,7 +1,8 @@
 [[section-quality-requirements]]
 == Quality Requirements
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Quality requirements are the "how" to the "what" - qualitative definitions or precisions of the functional requirements.
@@ -29,14 +30,17 @@ Quality requirements defined here will be filtered and prioritized:
 * Complete detailed quality requirements → arc42 Chapter 10 (Quality Requirements)
 
 ****
+endif::tpo42help[]
 
 //tag::quality_goals[]
 === ISO 25010 Quality Model Overview
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Use this as a checklist and starting point. Remove quality characteristics that are not relevant to your business goals.
 ****
+endif::tpo42help[]
 
 .ISO 25010 Quality Characteristics
 [plantuml,{plantUMLDir}/iso25010-quality-model,png]
@@ -96,10 +100,12 @@ skinparam mindmapDiagram {
 
 === Quality Requirements
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 For each relevant quality characteristic from the ISO 25010 model above, define specific requirements using the structured format below. Link each requirement back to the business goals that drive it.
 ****
+endif::tpo42help[]
 
 ==== _<Quality Characteristic 1>_
 

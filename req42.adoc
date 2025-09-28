@@ -14,7 +14,8 @@ include::req42-chapters/about-req42.adoc[]
 // horizontal line
 ***
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 [NOTE]
 ====
@@ -22,7 +23,7 @@ This version of the framework contains help texts and explanations. It is meant 
 For your own documentation better use the _plain_ Version.
 ====
 ****
-
+endif::tpo42help[]
 
 // numbering from here on
 :numbered:

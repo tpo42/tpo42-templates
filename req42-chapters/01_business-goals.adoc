@@ -4,7 +4,8 @@
 //tag::vision[]
 === Vision
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 
 .Content
@@ -14,8 +15,9 @@ Statement what's a mission statement for the project. It should be short. It sho
 That's the entire point. Remember Kennedy, this was a great one beginning on 1960s he said by the end of the decade we're going to go to the Moon.
 
 .Notations/Tools
-https://de.slideshare.net/slideshow/a-14058644/14058644[Agile Companies Go P.O.P.]
-https://youtu.be/kKOqOMqp7wQ?t=383[Agile Companies Go P.O.P.]
+
+* https://de.slideshare.net/slideshow/a-14058644/14058644[Agile Companies Go P.O.P. - Slides]
+* https://youtu.be/kKOqOMqp7wQ?t=383[Agile Companies Go P.O.P. - Talk Video]
 
 // .More Information
 //
@@ -25,6 +27,7 @@ https://youtu.be/kKOqOMqp7wQ?t=383[Agile Companies Go P.O.P.]
 This vision will be included in arc42 Chapter 1 (Introduction and Goals) to provide business context for architectural decisions.
 
 ****
+endif::tpo42help[]
 
 Condensed goal summary in one or two (ideally) motivating sentences.
 //end::vision[]
@@ -32,7 +35,8 @@ Condensed goal summary in one or two (ideally) motivating sentences.
 //tag::business_goals[]
 === Goals
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 
 .Content
@@ -72,6 +76,7 @@ Business goals directly influence:
 * arc42 Chapter 11: Technical risks related to business goal achievement
 
 ****
+endif::tpo42help[]
 
 .Goal definitions according to PAM
 [options="header",cols="1,2,12",stripes=even]

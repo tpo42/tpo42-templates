@@ -5,8 +5,8 @@
 // ==================================
 :toc-title: table of contents
 
-:arc42-revnumber: 8.2 EN
-:arc42-revdate: January 2023
+:arc42-revnumber: 9.0 EN
+:arc42-revdate: July 2025
 :req42-revnumber: 2.0 EN
 :req42-revdate: March 2023
 :revremark: (based upon AsciiDoc version)
@@ -16,4 +16,4 @@
 // enable table-of-contents
 :toc:
 
-:arc42help:
+:tpo42help:

@@ -1,7 +1,8 @@
 [[section-product-backlog]]
 == Product Backlog
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 An ordered list of product backlog items (at different levels of granularity: e.g. epics, features and user stories). Backlog items should be prioritized (better term: ranked) among each other.
@@ -51,6 +52,7 @@ Product backlog items are influenced by architectural decisions and strategic ch
 * req42 Chapter 11 (Roadmap): Strategic timeline drives backlog prioritization
 
 ****
+endif::tpo42help[]
 
 [[roadmap-overview]]
 Insert overview from roadmap

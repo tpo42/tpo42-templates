@@ -1,7 +1,8 @@
 [[section-risks-assumptions]]
 == Risks & Assumptions
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 (Prioritized) lists of risks you have identified and a list of assumptions you have made as a basis for decisions.
@@ -24,6 +25,7 @@ Simple tables or lists are often already sufficient.
 Business risks identified here complement technical risks in arc42 Chapter 11 (Technical Risks). Risk mitigation strategies may influence architectural decisions and solution strategy.
 
 ****
+endif::tpo42help[]
 
 //tag::risks[]
 === Risks

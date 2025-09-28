@@ -1,7 +1,8 @@
 [[section-constraints]]
 == Constraints
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Technological or organizational (mandated) constraints for the development process, such as mandatory activities, prescribed documents and their content, milestones to be met, ...
@@ -20,6 +21,7 @@ Simple lists, possibly organized by category.
 Constraints defined here will become technical constraints in arc42 Chapter 2 (Architecture Constraints). Organizational constraints may influence solution strategy and architectural decisions.
 
 ****
+endif::tpo42help[]
 
 //tag::organizational_constraints[]
 === Organizational Constraints

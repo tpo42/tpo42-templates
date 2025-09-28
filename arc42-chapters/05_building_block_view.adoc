@@ -2,8 +2,8 @@
 
 == Building Block View
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 The building block view shows the static decomposition of the system into building blocks (modules, components, subsystems, classes, interfaces, packages, libraries, frameworks, layers, partitions, tiers, functions, macros, operations, data structures, ...) as well as their dependencies (relationships, associations, ...)
@@ -31,19 +31,23 @@ Thus it contains the white box description of selected building blocks of level 
 
 *Level 3* zooms into selected building blocks of level 2, and so on.
 
-People who want re-use existing diagram code, might refer image::c4-static.png["C4 model hierarchy"] from https://c4model.com[The C4 model for visualising software architecture].
+People who want re-use existing diagram code, might refer
+
+image::c4-static.png["C4 model hierarchy"]
+
+from https://c4model.com[The C4 model for visualising software architecture].
 
 .Further Information
 
 See https://docs.arc42.org/section-5/[Building Block View] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 === Whitebox Overall System
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Here you describe the decomposition of the overall system using the following white box template. It contains
 
@@ -62,7 +66,7 @@ Since there are so many ways to specify interfaces why do not provide a specific
 In the best case you will get away with examples or simple signatures.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 _**<Overview Diagram>**_
 
@@ -77,8 +81,8 @@ _<Description of contained building block (black boxes)>_
 Important Interfaces::
 _<Description of important interfaces>_
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Insert your explanations of black boxes from level 1:
 
@@ -95,12 +99,12 @@ responsibility according to the following schema:
 If you use a list of black box descriptions then you fill in a separate black box template for every important building block .
 Its headline is the name of the black box.
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 ==== <Name black box 1>
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Here you describe <black box 1>
 according the the following black box template:
@@ -113,7 +117,7 @@ according the the following black box template:
 * (Optional) Open issues/problems/risks
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 _<Purpose/Responsibility>_
 
@@ -143,8 +147,8 @@ _<black box template>_
 
 === Level 2
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.
 
@@ -152,16 +156,16 @@ You have to decide which building blocks of your system are important enough to 
 Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
 Leave out normal, simple, boring or standardized parts of your system
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 ==== White Box _<building block 1>_
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 ...describes the internal structure of _building block 1_.
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 _<white box template>_
 
@@ -177,24 +181,24 @@ _<white box template>_
 
 === Level 3
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.
 
 When you need more detailed levels of your architecture please copy this
 part of arc42 for additional levels.
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 ==== White Box <_building block x.1_>
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Specifies the internal structure of _building block x.1_.
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 _<white box template>_
 

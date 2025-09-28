@@ -1,8 +1,8 @@
 [[section-design-decisions]]
 == Architecture Decisions
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 Important, expensive, large scale or risky architecture decisions including rationales.
@@ -34,12 +34,12 @@ Architecture decisions may be driven by business requirements (req42 business go
 * https://adr.github.io[Architecture Decision Records] (templates and community standards)
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 //tag::decision_index[]
 === Decision Index
 
-[role="arc42help"]
+[role="tpo42help"]
 ****
 .Content
 Overview of all architecture decisions for quick reference and status tracking.
@@ -72,10 +72,12 @@ Overview of all architecture decisions for quick reference and status tracking.
 ==== Consequences
 
 **Positive:**
+
 * _<Benefit 1>_
 * _<Benefit 2>_
 
 **Negative:**
+
 * _<Risk/Limitation 1>_
 * _<Risk/Limitation 2>_
 //end::decision_template[]

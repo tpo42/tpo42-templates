@@ -1,8 +1,8 @@
 [[section-technical-risks]]
 == Risks and Technical Debts
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 A list of identified technical risks or technical debts, ordered by priority
@@ -23,17 +23,19 @@ Include business/project risks from req42 Chapter 12 and add architecture-specif
 See https://docs.arc42.org/section-11/[Risks and Technical Debt] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 include::../req42-chapters/12_risks-assumptions.adoc[tag=risks]
 
 === Additional Technical Risks
 
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 if needed, add technical risks not covered in req42 business risks. Focus on architecture, implementation, and technology-specific risks.
 ****
+endif::tpo42help[]
 
 [cols="1,3,1,1,3,3" options="header"]
 |===
@@ -54,11 +56,13 @@ a|
 
 === Technical Debts
 
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Known technical shortcuts, temporary solutions, or architectural compromises that need to be addressed.
 ****
+endif::tpo42help[]
 
 [cols="1,3,1,2,2" options="header"]
 |===

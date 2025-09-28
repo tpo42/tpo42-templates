@@ -2,8 +2,8 @@
 
 == Introduction and Goals
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 Describes the relevant requirements and the driving forces that software architects and development team must consider.
 These include
@@ -14,14 +14,14 @@ These include
 * quality goals for the architecture and
 * relevant stakeholders and their expectations
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 include::../req42-chapters/01_business-goals.adoc[tag=vision]
 
 === Requirements Overview
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 Short description of the functional requirements, driving forces, extract (or abstract)
@@ -49,14 +49,14 @@ Consider including high-level requirements from:
 See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 _<Include high-level requirements overview here - consider creating custom tags in req42 chapters for architectural perspective>_
 
 === Quality Goals
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders.
@@ -85,14 +85,14 @@ Top architectural quality goals filtered from business requirements
 //end::architectural_quality_goals[]
 ```
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 _<Include top 3-5 architectural quality goals here - filter from req42 Chapter 6 Quality Requirements>_
 
 === Stakeholders
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that
@@ -119,6 +119,6 @@ Stakeholders who need to understand, approve, or work with the architecture
 //end::architectural_stakeholders[]
 ```
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 include::../req42-chapters/02_stakeholder.adoc[tag=stakeholder_table]

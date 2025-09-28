@@ -1,7 +1,8 @@
 [[section-roadmap]]
 == Roadmap
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 "Delivery artifacts put on the timeline" - who delivers what and when?
@@ -20,6 +21,7 @@ If you only live from hand to mouth, you may unknowingly make short-term decisio
 .tpo42 Integration
 Roadmap drives backlog prioritization (Chapter 4) and influences team organization (Chapter 10). Timeline constraints become organizational constraints (Chapter 7).
 ****
+endif::tpo42help[]
 
 //tag::timeline[]
 === Development Timeline

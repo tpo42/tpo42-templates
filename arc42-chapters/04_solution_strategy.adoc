@@ -1,8 +1,8 @@
 [[section-solution-strategy]]
 == Solution Strategy
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 A short summary and explanation of the fundamental decisions and solution strategies, that shape system architecture. It includes
@@ -22,10 +22,9 @@ Motivate what was decided and why it was decided that way,
 based upon problem statement, quality goals and key constraints.
 Refer to details in the following sections.
 
-
 .Further Information
 
 See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]

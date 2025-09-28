@@ -1,8 +1,8 @@
 [[section-concepts]]
 == Cross-cutting Concepts
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 This section describes crosscutting concepts (practices, patterns, regulations or solution ideas).
@@ -42,7 +42,7 @@ In the diagram above, logging concerns all three components, whereas security is
 
 See https://docs.arc42.org/section-8/[Concepts] in the arc42 documentation.
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 === _<Concept 1>_
 

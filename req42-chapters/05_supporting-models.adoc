@@ -1,7 +1,8 @@
 [[section-suppporting-models]]
 == Supporting Models
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Any kind of graphical models that facilitate the understanding (of relationships) of Backlog Items. The diagrams should be linked to items from the Product Backlog.
@@ -29,6 +30,7 @@ Simple modeling tools like Gliffy, Diagrams.Net (formerly DrawIO), ......, or DS
 //
 // https://docs.req42.de/category_a/#5 in the online documentation
 ****
+endif::tpo42help[]
 
 _<Diagram Title 1:>_. _<insert diagram and explanations here >_ _<optional: Link to Epics, Features or Stories>_
 
@@ -36,8 +38,8 @@ _<Diagram Title 2:>_. _<insert diagram and explanations here >_ _<optional: Link
 
 _<Diagram Title 3:>_. _<insert diagram and explanations here >_ _<optional: Link to Epics, Features or Stories>_
 
- .
- .
- .
+.
+.
+.
 
 _<Diagram Title n:>_. _<insert diagram and explanations here >_ _<optional: Link to Epics, Features or Stories>_

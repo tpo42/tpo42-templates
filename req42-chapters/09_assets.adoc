@@ -1,7 +1,8 @@
 [[section-assets]]
 == Assets
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Under assets we summarize everything that your sponsors or clients give you to enable you as a product owner (together with your team) to do your job successfully.
@@ -27,6 +28,7 @@ Simple lists or tables. For role definitions, consider different formats:
 Role definitions here should align with the solution strategy from arc42 Chapter 4. Technology choices drive required skills and team composition.
 
 ****
+endif::tpo42help[]
 
 //tag::budget[]
 === Budget
@@ -44,11 +46,13 @@ External resources:: Third-party services, consulting, outsourcing
 
 ==== Team Member Availability
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Resource planning and capacity allocation. This complements stakeholder information from Chapter 2 by focusing on availability and capacity rather than roles and responsibilities.
 ****
+endif::tpo42help[]
 
 [cols="1,2,1",options="header",stripes=even]
 |===
@@ -60,7 +64,8 @@ Resource planning and capacity allocation. This complements stakeholder informat
 
 ==== Role Definitions
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Detailed skill requirements and responsibilities for roles needed based on solution strategy. These roles should be derived from architectural decisions and technology choices made in arc42 Chapter 4.
@@ -68,6 +73,7 @@ Detailed skill requirements and responsibilities for roles needed based on solut
 .Motivation
 Technology choices (Qt vs. web technologies, embedded vs. cloud-native) determine required skill sets. Define these requirements clearly to ensure proper team composition and identify skill gaps.
 ****
+endif::tpo42help[]
 
 ===== _<Role Name 1>_
 
@@ -113,7 +119,8 @@ a|
 //tag::technical_infrastructure[]
 === Technical Infrastructure
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Impediment management for technical resources. Identify gaps and available equipment to prevent development blockers.
@@ -121,6 +128,7 @@ Impediment management for technical resources. Identify gaps and available equip
 .Motivation
 Technical infrastructure gaps can block development progress. Early identification enables proactive procurement or workaround planning.
 ****
+endif::tpo42help[]
 
 ==== Critical Equipment Gaps
 
@@ -154,11 +162,13 @@ Quality Assurance Infrastructure::
 //tag::external_resources[]
 === External Resources
 
-[role="req42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Everything external that the project depends on but doesn't have an inventory number - from manufacturing partners to cloud services to consulting support.
 ****
+endif::tpo42help[]
 
 ==== Component Suppliers
 

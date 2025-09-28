@@ -1,8 +1,8 @@
 [[section-architecture-constraints]]
 == Architecture Constraints
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Contents
 Any requirement that constraints software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
@@ -33,7 +33,7 @@ Most constraints are defined in req42 Chapter 7 (Constraints). Include relevant 
 See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 documentation.
 
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 include::../req42-chapters/07_constraints.adoc[tag=organizational_constraints]
 
@@ -43,8 +43,8 @@ include::../req42-chapters/07_constraints.adoc[tag=human_perception_constraints]
 
 === Additional Architecture-Specific Constraints
 
-ifdef::arc42help[]
-[role="arc42help"]
+ifdef::tpo42help[]
+[role="tpo42help"]
 ****
 .Content
 Constraints that are specific to the architectural perspective and not covered in req42 business constraints.
@@ -55,7 +55,7 @@ Constraints that are specific to the architectural perspective and not covered i
 * Integration patterns required by existing systems
 * Deployment topology constraints
 ****
-endif::arc42help[]
+endif::tpo42help[]
 
 [cols="1,3" options="header"]
 |===
