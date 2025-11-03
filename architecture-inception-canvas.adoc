@@ -1,0 +1,21 @@
+= Architecture Inception Canvas - Template
+
+include::req42-chapters/essentials.adoc[]
+include::arc42-chapters/essentials.adoc[]
+
+[cols="1,1,1,1"]
+|===
+4+| {businesscase}
+
+| {functionaloverview}
+2.2+| {businesscontext}
+| {orgconstraints}
+
+| {qualitygoals}
+| {techconstraints}
+
+2+| {archhypotheses}
+2+| {challengesrisks}
+|===
+
+_Software Architecture Canvas by Patrick Roos and arc42 Contributors is licensed under Attribution-ShareAlike 4.0 International_ - https://canvas.arc42.org

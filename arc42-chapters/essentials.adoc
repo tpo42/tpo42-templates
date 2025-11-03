@@ -1,0 +1,9 @@
+:archhypotheses: Architectural Hypotheses as List or Table
+
+:corefunctions: Core functions
+:coredecisions: Core decisions - good or bad
+:technologies: Overview of most important technologies
+
+:componentsmodules: Most important components and/or modules
+
+:risksmissinginfo: Overview of top-most risks and missing information

@@ -26,7 +26,9 @@ inputFiles = [
         //[file: 'doctoolchain_demo.adoc',       formats: ['html','pdf']],
         //[file: 'arc42-template.adoc',    formats: ['html','pdf']],
 	[file: 'arc42.adoc', formats: ['html','pdf']],
+	[file: 'architecture-communication-canvas.adoc', formats: ['html','pdf']],
 	[file: 'req42.adoc', formats: ['html','pdf']],
+	[file: 'architecture-inception-canvas.adoc', formats: ['html','pdf']],
 	/** inputFiles **/
 ]
 

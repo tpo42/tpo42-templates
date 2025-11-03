@@ -1,0 +1,23 @@
+= Architecture Inception Canvas - Template
+
+include::req42-chapters/essentials.adoc[]
+include::arc42-chapters/essentials.adoc[]
+
+[cols="1,1,1,1"]
+|===
+| {businesscase}
+.2+| {corefunctions}
+.3+| {coredecisions}
+.3+| {technologies}
+
+.2+| {orgconstraints}
+
+| {qualitygoals}
+
+2+| {businesscontext}
+2+| {componentsmodules}
+
+4+| {risksmissinginfo}
+|===
+
+_Architecture Communication Canvas by Gernot Starke and arc42 Contributors is licensed under Attribution-ShareAlike 4.0 International_ - https://canvas.arc42.org
