@@ -87,7 +87,7 @@ Top architectural quality goals filtered from business requirements
 ****
 endif::tpo42help[]
 
-_<Include top 3-5 architectural quality goals here - filter from req42 Chapter 6 Quality Requirements>_
+include::../req42-chapters/06_quality-requirements.adoc[tag=quality_goals]
 
 === Stakeholders
 
