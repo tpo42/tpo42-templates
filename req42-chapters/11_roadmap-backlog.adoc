@@ -1,5 +1,87 @@
-[[section-product-backlog]]
-== Product Backlog
+[[section-backlog]]
+== Roadmap & Backlog
+
+ifdef::tpo42help[]
+[role="tpo42help"]
+****
+.Content
+"Delivery artifacts put on the timeline" - who delivers what and when?
+
+.Motivation
+Agile projects also need a plan. The more distant a goal is, the less precise the plan can be. The closer, the more precise.
+
+An explicitly known roadmap enables all participants to coordinate with each other and to think along with each other, and therefore to take into account what is still to come in the medium term when making short-term decisions.
+
+If you only live from hand to mouth, you may unknowingly make short-term decisions that are contrary to longer-term product success.
+
+// .More Information
+//
+// https://docs.req42.de/section-xxx in the online documentation.
+
+.tpo42 Integration
+Roadmap drives backlog prioritization (Chapter 4) and influences team organization (Chapter 10). Timeline constraints become organizational constraints (Chapter 7).
+****
+endif::tpo42help[]
+
+//tag::timeline[]
+=== Development Timeline
+
+==== _<Time Period 1>_ (Immediate)
+
+[ditaa]
+----
++---------------------------+
+| Primary Deliverable       |
++---------------------------+
+       |             |
++-------------+ +-------------+
+| Component A | | Component B |
++-------------+ +-------------+
+----
+
+* _<Deliverable 1>_ - _<Description>_
+* _<Deliverable 2>_ - _<Description>_
+* _<Integration/Testing>_ - _<Validation>_
+
+==== _<Time Period 2>_ (Near-term)
+
+* _<Feature/Capability 1>_ - _<Focus area>_
+* _<Feature/Capability 2>_ - _<Focus area>_
+* _<Quality milestone>_ - _<Target>_
+
+==== _<Long-term Vision>_ (Strategic Goal)
+
+* _<Strategic objective>_ - _<Business outcome>_
+//end::timeline[]
+
+//tag::dependencies_risks[]
+=== Key Dependencies & Risks
+
+==== External Dependencies
+
+_<Dependency 1>_:: _<What we need and when>_
+_<Dependency 2>_:: _<What we need and when>_
+
+==== Blocked Items
+
+_<Blocked item 1>_:: _<What's blocking it>_
+_<Blocked item 2>_:: _<What's blocking it>_
+
+==== Critical Path
+
+_<Critical item 1>_:: _<Why it's critical>_
+_<Critical item 2>_:: _<Why it's critical>_
+//end::dependencies_risks[]
+
+//tag::success_criteria[]
+=== Success Criteria
+
+* [TARGET] _<Measurable outcome 1>_
+* [TARGET] _<Measurable outcome 2>_
+* [TARGET] _<Strategic milestone>_
+//end::success_criteria[]
+
+=== Backlog
 
 ifdef::tpo42help[]
 [role="tpo42help"]
@@ -49,7 +131,7 @@ Product backlog items are influenced by architectural decisions and strategic ch
 
 * arc42 Chapter 4 (Solution Strategy): Technical approach influences feature breakdown and implementation complexity
 * arc42 Chapter 9 (Architecture Decisions): Technical constraints affect story sizing and dependencies
-* req42 Chapter 11 (Roadmap): Strategic timeline drives backlog prioritization
+* req42 Chapter 5-7 (Functional & Non-functional Requirements): Requirements influences clustering of how goals are reached
 
 ****
 endif::tpo42help[]
@@ -74,6 +156,7 @@ skinparam handwritten true
 rectangle "Business Perspective\n(Management)" #line.dashed {
   rectangle "Vision" as vision #D4AF37
   rectangle "Goal" as goal #87CEFA
+  rectangle "Functional Requirement" as functional_requirement #ADD8E6
 }
 
 rectangle "Product Perspective" #line.dashed {
@@ -82,12 +165,6 @@ rectangle "Product Perspective" #line.dashed {
   rectangle "Story" as story #32CD32
   rectangle "Task" as task #ADFF2F
 }
-
-vision -> goal
-goal -d-> epic
-epic -> feature
-feature -> story
-story -> task
 
 rectangle "Surrounding Perspective" #line.dashed {
   rectangle "Environment" as environment #A9A9A9
@@ -102,33 +179,21 @@ rectangle "Technical Perspective" #line.dashed {
 
 am -u-> constraint
 ad -u-> constraint
-environment -u-> constraint
+environment -d-> constraint
 
+environment -[hidden]r- quality_goal
+functional_requirement -[hidden]d- quality_goal
+
+vision -> goal
+goal -l-> functional_requirement
+functional_requirement --> epic
+epic -> feature
+feature -> story
+story -> task
+
+goal --> quality_goal
 constraint -u-> epic
-quality_goal -u-> epic
+quality_goal -l-> epic
 
 @enduml
 ----
-
-**Color Coding:**
-
-* **Purple (#9370DB)**: Epics - High-level capabilities
-* **Violet (#EE82EE)**: Features - team/product/component scope
-* **Green (#32CD32)**: Stories/Tasks - team/product/component scope
-* **Light Pink (#FFEEEE)**: External dependencies (neighbor team/product/component)
-* **Red (#FF4444)**: Critical features (Production deadline)
-* **Gold (#FFD700)**: Milestones - Key delivery dates
-
-**Visual Indicators:**
-
-* **Solid rectangles**: team scope
-* **Dotted rectangles**: External dependencies (neighbor team)
-* **Dotted arrows**: Interface dependencies between teams
-
-**Status Symbols:**
-
-* **[x]**: Review - Code complete, under review
-* **[!]**: In Progress - Active development
-* **[?]**: Ready/Bereit - Prepared for development
-* **[-]**: To Do - Defined but not started
-* **[X]**: BLOCKED - Dependency blocking progress

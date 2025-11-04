@@ -51,7 +51,7 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 ****
 endif::tpo42help[]
 
-_<Include high-level requirements overview here - consider creating custom tags in req42 chapters for architectural perspective>_
+include::../req42-chapters/04_functional-requirements.adoc[tag=functional_overview]
 
 === Quality Goals
 

@@ -1,0 +1,164 @@
+[[section-functional-requirements]]
+== Functional Requirements
+
+ifdef::tpo42help[]
+[role="tpo42help"]
+****
+.tpo42 Extension
+This chapter is a tpo42-specific extension to req42. The standard req42 framework considers Epics (Chapter 4) as the top-level functional requirements.
+
+tpo42 adds this explicit Functional Requirements layer for:
+
+* Long-lived products requiring stable capability definitions
+* Architecture documentation needing implementation-agnostic requirements
+* Clear separation between WHAT (capabilities) and HOW (implementation)
+
+For standard req42 usage, Epics in Chapter 4 serve as functional requirements overview. See req42 documentation for the canonical approach.
+
+.Content
+Functional requirements describe the essential capabilities and features of the product - the "WHAT" the system must do. These are product-scope requirements that describe capabilities independent of implementation details.
+Functional requirements bridge between business goals (Chapter 1) and implementation backlog (Chapter 11). They answer: "What capabilities must this product provide to achieve the business goals?"
+
+.Motivation
+Functional requirements provide a stable, high-level view of product capabilities that:
+
+* Serve as foundation for epic and feature breakdown in the backlog
+* Enable architecture decisions based on required capabilities
+* Provide clear traceability from business goals to implementation
+
+Unlike quality requirements (Chapter 6) which describe "how well" the system performs, functional requirements describe "what" the system does. Unlike backlog items (Chapter 11) which include prioritization and timing, functional requirements focus purely on capabilities.
+
+.Approach
+. Start with business goals from Chapter 1 - each goal typically implies one or more functional requirements
+. Identify core product capabilities needed to achieve those goals
+. Express requirements at product-scope level (not team-specific implementation)
+. Keep requirements implementation-agnostic - focus on "what" not "how"
+. Link each requirement back to driving business goals
+. Use acceptance criteria to make requirements testable
+
+// .More Information
+//
+// See https://docs.req42.de/section-5 in the online documentation (when available)
+
+.tpo42 Integration
+Functional requirements defined here serve multiple purposes:
+
+* **arc42 Chapter 1 Section 2 (Requirements Overview):** Top 5-10 most architecturally significant Functional Requirements provide the "bird's eye view"
+* **arc42 Chapter 4 (Solution Strategy):** Functional Requirements influence technical approach and technology choices
+* **req42 Chapter 11 (Product Backlog):** Each Functional Requirements breaks down into epics, features, stories
+* **Canvas Integration:** Functional Requirements provide `:functionaloverview:` for Architecture Inception Canvas or Architecture Communication Canvas, respectively
+
+****
+endif::tpo42help[]
+
+//tag::functional_overview[]
+=== Functional Requirements Overview
+
+ifdef::tpo42help[]
+[role="tpo42help"]
+****
+.Content
+High-level list of all functional requirements with one-line descriptions. This serves as a navigational aid and quick reference.
+
+.Form
+Simple table, list, or mindmap format. Keep descriptions concise - detailed specifications follow in subsections below.
+****
+endif::tpo42help[]
+
+[cols="3,2",options="header",stripes=even]
+|===
+|Functional Requirement |Derived from Goal(s)
+
+| _<Functional Requirement 1>_
+| _<Goal 1, Goal 3>_
+
+| _<Functional Requirement 2>_
+| _<Goal 1, Goal 2>_
+
+| _<Functional Requirement 3>_
+| _<Goal 2>_
+
+| _<Functional Requirement 4>_
+| _<Goal 3, Goal 4>_
+
+| _<Functional Requirement 5>_
+| _<Goal 5>_
+
+|===
+
+//end::functional_overview[]
+
+ifdef::tpo42help[]
+[role="tpo42help"]
+****
+Detailed specification of each functional requirement using structured format. Each FR should be independently understandable and testable.
+****
+endif::tpo42help[]
+
+//tag::functional_requirements[]
+=== Functional Requirements Details
+
+==== _<Functional Requirement 1>_
+
+Business Requirement::
+_<Specific functional requirement in measurable terms>_
+
+Business Justification::
+_<Reference to business goal(s) from Chapter 1 and background/context>_
+
+Acceptance Criteria::
+* _<Scenario 1: Given... When... Then...>_
+* _<Scenario 2: Measurable criteria>_
+* _<Scenario 3: Performance targets>_
+
+Business Impact if not achieved::
+* _<Customer impact>_
+* _<Business impact>_
+* _<Technical impact>_
+* _<Market impact>_
+
+---
+
+==== _<Functional Requirement 2>_
+
+Business Requirement::
+_<Specific functional requirement in measurable terms>_
+
+Business Justification::
+_<Reference to business goal(s) from Chapter 1 and background/context>_
+
+Acceptance Criteria::
+* _<Scenario 1: Given... When... Then...>_
+* _<Scenario 2: Measurable criteria>_
+* _<Scenario 3: Performance targets>_
+
+Business Impact if not achieved::
+* _<Customer impact>_
+* _<Business impact>_
+* _<Technical impact>_
+* _<Market impact>_
+
+---
+
+==== _<Functional Requirement n>_
+
+Business Requirement::
+_<Specific functional requirement in measurable terms>_
+
+Business Justification::
+_<Reference to business goal(s) from Chapter 1 and background/context>_
+
+Acceptance Criteria::
+* _<Scenario 1: Given... When... Then...>_
+* _<Scenario 2: Measurable criteria>_
+* _<Scenario 3: Performance targets>_
+
+Business Impact if not achieved::
+* _<Customer impact>_
+* _<Business impact>_
+* _<Technical impact>_
+* _<Market impact>_
+
+---
+
+//end::functional_requirements[]

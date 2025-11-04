@@ -38,7 +38,7 @@ include::req42-chapters/02_stakeholder.adoc[]
 include::req42-chapters/03_scope.adoc[]
 
 <<<<
-include::req42-chapters/04_product-backlog.adoc[]
+include::req42-chapters/04_functional-requirements.adoc[]
 
 <<<<
 include::req42-chapters/05_supporting-models.adoc[]
@@ -59,7 +59,7 @@ include::req42-chapters/09_assets.adoc[]
 include::req42-chapters/10_teams.adoc[]
 
 <<<<
-include::req42-chapters/11_roadmap.adoc[]
+include::req42-chapters/11_roadmap-backlog.adoc[]
 
 <<<<
 include::req42-chapters/12_risks-assumptions.adoc[]
