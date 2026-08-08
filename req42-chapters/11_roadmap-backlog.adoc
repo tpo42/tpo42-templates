@@ -141,6 +141,7 @@ Insert overview from roadmap
 
 [[backlog-details]]
 === Backlog Details
+
 Insert Epic/Feature -> Story diagrams per topic
 
 [[backlog-legend]]

@@ -79,11 +79,11 @@ A table with quality goals and concrete scenarios, ordered by priorities
 Select the top 3-5 most architecturally relevant quality goals from req42 Chapter 6 (Quality Requirements). Focus on qualities that directly influence architectural decisions rather than all business quality requirements.
 
 Consider creating a custom tag in req42 Chapter 6 for the architectural subset:
-```
+----
 //tag::architectural_quality_goals[]
 Top architectural quality goals filtered from business requirements
 //end::architectural_quality_goals[]
-```
+----
 ****
 endif::tpo42help[]
 
@@ -113,11 +113,11 @@ Table with role names, person names, and their expectations with respect to the 
 
 .tpo42 Integration
 Include stakeholders from req42 Chapter 2, but focus on those relevant to architectural decisions and documentation. Consider creating architectural stakeholder tags:
-```
+----
 //tag::architectural_stakeholders[]
 Stakeholders who need to understand, approve, or work with the architecture
 //end::architectural_stakeholders[]
-```
+----
 ****
 endif::tpo42help[]
 
