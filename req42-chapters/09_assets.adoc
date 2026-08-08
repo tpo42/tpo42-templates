@@ -17,8 +17,7 @@ In any case, you should know what you have at your disposal in terms of money, p
 .Notations/Tools
 Simple lists or tables. For role definitions, consider different formats:
 * Simple format: Role description with responsibilities
-* RACI matrix: Responsible, Accountable, Consulted, Informed
-* CAIRO matrix: Consulted, Accountable, Informed, Responsible, Omitted (https://de.wikipedia.org/wiki/RACI)
+* PARIS model: Participant, Accountable, Reviewer, Input, Sign-Off
 
 // .More Information
 //
