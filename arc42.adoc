@@ -6,6 +6,11 @@
 // configure EN settings for asciidoc
 include::.tpo42asciidoctorconfig.adoc[]
 
+// Names the compile unit. Content shared with req42 through tagged includes is
+// converted twice, once here and once there, and an anchor only resolves in the
+// document that defines it. Shared text asks this attribute which side it is on.
+:is-arc42:
+
 = image:arc42-logo.png[arc42] Template
 
 include::arc42-chapters/about-arc42.adoc[]

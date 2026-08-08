@@ -1,4 +1,4 @@
-[[section-suppporting-models]]
+[[section-supporting-models]]
 == Supporting Models
 
 ifdef::tpo42help[]

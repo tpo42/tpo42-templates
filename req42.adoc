@@ -5,6 +5,10 @@
 
 include::.tpo42asciidoctorconfig.adoc[]
 
+// Names the compile unit — see the note in arc42.adoc. Tagged regions below are
+// included into arc42 as well and are converted in both documents.
+:is-req42:
+
 = image:req42-logo.png[req42] Framework
 
 include::req42-chapters/about-req42.adoc[]

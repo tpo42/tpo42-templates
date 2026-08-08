@@ -67,6 +67,19 @@ git add lefthook.yml docker-compose.yml container \
 git commit -s -m "docs: introduce quality gates ..."
 ----
 
+The skills under `.claude/skills/` are left out of the copy above on purpose.
+Copying them makes a second source that ages quietly; https://github.com/Getty/manage-skills[manage-skills] hardlinks them from one place instead, so an improvement reaches every project that linked it and your teammates still get a normal file when they clone:
+
+[source,bash]
+----
+manage-skills sources add /path/to/tpo42-templates/.claude/skills
+manage-skills link xref
+----
+
+Copying works too, if you would rather not add a tool for it — the skills are plain Markdown and
+carry no dependencies.
+Which way you go stays your decision; the templates only provide the source.
+
 ==== Local lefthook Setup
 
 `lefthook.yml` names tools, never containers.
