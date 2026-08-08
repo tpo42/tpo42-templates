@@ -1,0 +1,169 @@
+# lefthook.yml — tpo42-templates
+#
+# Derived from the qa-ready mini fleet, pruned to what this repository actually carries:
+# 30 .adoc, 3 YAML, 1 .groovy, images (.png/.svg/.gcimgd). No shell scripts, no Dockerfile,
+# no XML, no JSON — so shellcheck/shfmt, hadolint, xmllint and jsonlint are not wired here.
+# Add them from references/catalog.md when such a file appears.
+#
+# INVARIANT — no container reference in this file.
+# Jobs name tools. The {template} placeholders decide where those tools come from:
+#   empty (as below)      → the tool runs natively. This is the GitHub Actions case;
+#                           GitHub runs VMs, so the workflow installs the tools.
+#   filled in lefthook-local.yml → the tool runs in a container. This is the framework
+#                           developer case; see lefthook-local.yml.example.
+# Never both, and never nested: starting a container from inside a container does not
+# work — paths do not resolve and the socket belongs to another namespace. Dispatch
+# therefore belongs to the calling layer, not to this file.
+#
+# A template expands to a *prefix* that ends before the tool name, so images used here
+# must not set an ENTRYPOINT that supplies the binary.
+
+min_version: 2.0.0
+
+templates:
+  # domain bucket — version integrity with the documentation build
+  adoc:   # asciidoctor, asciidoctor-pdf, validate
+  dtc:    # docToolchain
+  # domain by artefact, not by version — parses AsciiDoc independently of Asciidoctor
+  alint:  # asciidoc-linter
+  # mini bucket — fast, non-build checks
+  mini:
+
+pre-commit:
+  parallel: true
+  jobs:
+
+    # ---------------------------------------------------------------- mini bucket
+
+    # Whitespace, EOL and charset for every language from one SSOT (.editorconfig).
+    - name: editorconfig
+      tags: [mini, format]
+      glob: "*"
+      run: "{mini} ec {staged_files}"
+
+    - name: yamllint
+      tags: [mini, yaml]
+      glob: "*.{yml,yaml}"
+      run: "{mini} yamllint {staged_files}"
+
+    # Workflow structure against the vendored SchemaStore definition. Complements
+    # actionlint rather than duplicating it: this one knows which keys may appear where,
+    # the other knows what the values mean. There is no action.yml here, so the
+    # companion vendor.github-actions schema is not wired.
+    - name: workflow-schema
+      tags: [mini, ci]
+      glob: ".github/workflows/*.{yml,yaml}"
+      run: "{mini} check-jsonschema --builtin-schema vendor.github-workflows {staged_files}"
+
+    # Workflow semantics — expressions, runner labels, action inputs.
+    - name: actionlint
+      tags: [mini, ci]
+      glob: ".github/workflows/*.{yml,yaml}"
+      run: "{mini} actionlint {staged_files}"
+
+    # Compose semantics (key order, name field) — complementary to yamllint.
+    - name: dclint
+      tags: [mini, compose]
+      glob: "*compose*.{yml,yaml}"
+      run: "{mini} dclint {staged_files}"
+
+    # The repository builds two linting images itself, so it lints them too.
+    - name: hadolint
+      tags: [mini, docker]
+      glob: "{Containerfile,Dockerfile,*.Containerfile,*.dockerfile}"
+      run: "{mini} hadolint {staged_files}"
+
+    # git-native, so deliberately without a template: git is part of the host floor.
+    - name: merge-markers
+      tags: [mini]
+      run: git diff --check
+
+    # Branch policy, carried over from .pre-commit-config.yaml: commits are allowed on
+    # main and on feature/, hotfix/ and release/ branches, nowhere else.
+    - name: guard-branch
+      tags: [mini]
+      run: |
+        branch="$(git branch --show-current)"
+        [ -z "$branch" ] && exit 0
+        case "$branch" in
+          main|feature/*|hotfix/*|release/*) exit 0 ;;
+        esac
+        echo "commit on '$branch' refused — use main, feature/…, hotfix/… or release/…"
+        exit 1
+
+    # Secret gate on the staged change. Replaces detect-secrets: gitleaks needs no
+    # baseline, so .secrets.baseline goes away with the pre-commit removal.
+    - name: gitleaks
+      tags: [mini, secrets]
+      run: "{mini} gitleaks protect --staged --redact --no-banner --source ."
+
+    # Binary artefacts by type, not by size. The tracked .gcimgd files are compressed
+    # image sources, intentional, and deliberately not on this list.
+    - name: artifact-guard
+      tags: [mini]
+      glob: "*.{jar,so,a,o,elf,bin,exe,dll,class,pyc}"
+      run: |
+        echo "Binary/artifact file(s):"; printf '  %s\n' {staged_files}
+        echo "Intentional? Then allow via .gitattributes — otherwise remove."
+        exit 1
+
+    # -------------------------------------------------------------- domain bucket
+
+    # Toolchain validation, addressed at the COMPILE UNITS — never at the changed file.
+    # Chapter files are fragments: their `include::../req42-chapters/…` is correct only
+    # when they are pulled in from a document at the repository root. Validated on their
+    # own, their own directory becomes the jail, `..` is refused, and asciidoctor
+    # "recovers" to a path that does not exist. So any .adoc change validates the whole
+    # set of compile units instead.
+    #
+    # The unit list is duplicated from docToolchainConfig.groovy `inputFiles`, which is
+    # the pragmatic choice while there are two of them. Deriving fragment → unit from the
+    # include graph is the correct answer and needs a tool that resolves transitively,
+    # tag-includes and all; that is a dacli job, not a shell job.
+    #
+    # Goes through validate rather than raw asciidoctor: rendering to /dev/null skips
+    # conversion entirely, and --failure-level INFO only takes effect together with
+    # --verbose. Both traps are handled inside validate.
+    - name: adoc-validate
+      tags: [domain, asciidoc]
+      glob: "*.adoc"
+      run: |
+        {adoc} validate -i arc42.adoc -i req42.adoc \
+          --strict --verbose --failure-level INFO
+
+    # The two compile units are excluded, and only because of an upstream defect: IMG001
+    # resolves image paths without :imagesdir:, so both title logos are reported as
+    # missing, and the rule cannot currently be switched off — see .asciidoc-linter.yml.
+    # These two files are assembly only, attributes and includes, so the loss is small.
+    # Remove the exclude once upstream resolves either the path handling or the config
+    # bug; the chapters carry the content and stay covered either way.
+    - name: asciidoc-linter
+      tags: [domain, asciidoc]
+      glob: "*.adoc"
+      exclude:
+        - arc42.adoc
+        - req42.adoc
+      run: "{alint} asciidoc-linter --config .asciidoc-linter.yml {staged_files}"
+
+commit-msg:
+  jobs:
+    - name: gitlint
+      tags: [mini, commit]
+      run: "{mini} gitlint --msg-filename {1}"
+
+# Custom hook, not registered with git — run it by hand when reworking whitespace or
+# section structure:
+#
+#   lefthook run lint-strict
+#
+# Turns WS001 back on. See .asciidoc-linter.yml for why it is off by default.
+lint-strict:
+  jobs:
+    - name: asciidoc-linter-strict
+      tags: [domain, asciidoc, manual]
+      glob: "*.adoc"
+      run: "{alint} asciidoc-linter --config .asciidoc-linter-strict.yml {all_files}"
+
+# docToolchain's own validations are not wired yet — which of its diagnostics are usable
+# as a gate is a P0 survey task. The {dtc} template is declared so the wiring is a
+# one-liner once that is answered.

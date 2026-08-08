@@ -1,0 +1,43 @@
+# .asciidoc-linter.yml — default profile, used by the pre-commit hook.
+#
+# WS001 (WhitespaceRule) is disabled because it reports every tag boundary as a defect:
+#
+#   //tag::organizational_constraints[]
+#   === Organizational Constraints
+#
+# The rule wants a blank line before a section title and does not accept a comment line
+# as a substitute. Since the tag mechanism is how req42 content is shared into arc42 —
+# and therefore appears in front of most section titles here — the rule fires on the
+# SPOT mechanism itself, not on sloppiness. Notably it *does* accept `[[anchor]]`
+# directly above a title, so the gap is specifically comments.
+#
+# The same rule is disabled in another project for the mirror-image case: a `[discrete]`
+# attribute block, which likewise must sit directly above its heading. Two independent
+# false-positive classes, one upstream fix — treat attribute blocks and comment lines as
+# valid blank-line substitutes. Until that lands, the rule stays off here.
+#
+# It is not gone, only off by default: `lefthook run lint-strict` turns it back on via
+# .asciidoc-linter-strict.yml, which is what to use when reworking whitespace.
+
+# IMG001 (ImageAttributesRule) is disabled because it cannot resolve image paths. It
+# calls os.path.isfile() on the raw macro target, so it honours neither :imagesdir: nor
+# the document's own directory — it resolves against the process working directory. Both
+# arc42 and req42 set :imagesdir: by convention, so the rule reports every title logo as
+# missing in every project built from these templates.
+#
+# Unlike WS001 this is not a matter of taste; it is a defect, and the better of the two
+# upstream reports.
+#
+# The IMG001 switch below currently has NO EFFECT, because of a third upstream bug:
+# apply_config() removes disabled rules while iterating the very list it mutates, so the
+# element after a removed one is skipped. WhitespaceRule and ImageAttributesRule sit next
+# to each other, so disabling WS001 makes IMG001 unreachable. `for rule in list(...)`
+# fixes it. Downgrading the severity instead does not help either — the run still exits
+# non-zero. The switch stays here so it takes effect the day that lands; the working
+# workaround is the `exclude` on the asciidoc-linter job in lefthook.yml.
+
+rules:
+  WS001:
+    enabled: false
+  IMG001:
+    enabled: false

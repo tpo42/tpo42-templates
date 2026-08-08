@@ -45,8 +45,9 @@ Copy the framework files into your existing project:
 cp -r tpo42-templates/{.tpo42asciidoctorconfig.adoc,arc42.adoc,arc42-chapters,req42.adoc,req42-chapters,docToolchainConfig.groovy,images} \
   your-shiny-project/
 
-# copy pre-commit
-cp tpo42-templates/{.pre-commit-config.yaml,.yamllint,.gitlint} your-shiny-project/
+# copy the quality gates
+cp -r tpo42-templates/{lefthook.yml,docker-compose.yml,container,.editorconfig,.hadolint.yaml,.yamllint,.gitlint} \
+  your-shiny-project/
 
 cd your-shiny-project
 
@@ -59,11 +60,63 @@ git add arc42.adoc \
 git status # Review remaining files and decide
 git commit -s -m "docs: import tpo42 framework ..."
 
-# same for pre-commit
-pre-commit install
-detect-secrets scan > .secrets.baseline
-git add .pre-commit-config.yaml .yamllint .gitlint .secrets.baseline
-git commit -s -m "docs: introduce pre-commit ..."
+# same for the quality gates — gitleaks needs no baseline to maintain
+lefthook install
+git add lefthook.yml docker-compose.yml container \
+  .editorconfig .hadolint.yaml .yamllint .gitlint
+git commit -s -m "docs: introduce quality gates ..."
+----
+
+==== Local lefthook Setup
+
+`lefthook.yml` names tools, never containers.
+Where those tools come from is your decision and not the repository's — declare it once in `lefthook-local.yml`, which is git-ignored.
+
+Register the git hooks:
+
+[source,bash]
+----
+lefthook install
+----
+
+Then pick a source for the tools.
+Using the containers shipped here:
+
+A container does not see your `~/.gitconfig`, so tools that ask git who you are — `gitlint`, for one — find nothing.
+Two values in a git-ignored `.env` fix that for every containerised tool at once, and the same mechanism works unchanged on a CI runner:
+
+[source,bash]
+----
+printf 'GIT_USER_NAME=%s\nGIT_USER_EMAIL=%s\n' \
+  "$(git config user.name)" "$(git config user.email)" > .env
+
+docker compose up -d
+
+cat > lefthook-local.yml <<'EOF'
+templates:
+  adoc: docker compose exec -T tpo42-tpl-adoc
+  alint: docker compose exec -T tpo42-tpl-alint
+  dtc: docker compose exec -T tpo42-tpl-dtc
+  mini: docker compose exec -T tpo42-tpl-mini
+EOF
+----
+
+`docker compose exec` against warm services costs one container start per session.
+`docker compose run --rm -T` works as well and manages no lifecycle, at the price of one start per job — noticeable with eight jobs on a pre-commit hook.
+
+Podman, another compose implementation, or an entirely different source only change the prefixes above.
+Nothing else in this repository assumes a runtime.
+
+Having no `lefthook-local.yml` at all is equally valid: the templates stay empty and the tools are expected on `PATH`.
+That is how GitHub Actions runs these checks, a runner being a VM rather than a container.
+
+If a GUI git client runs your hooks, it will not see your shell profile.
+An rc file gives those hooks a PATH and can be shared across projects:
+
+[source,yaml]
+----
+# lefthook-local.yml
+rc: ~/.lefthookrc
 ----
 
 Apply future template improvements via:
@@ -87,7 +140,7 @@ Since projects typically start with gathering business ideas, arc42 chapters sou
 
 [source,adoc]
 ----
-include::../req42-chapters/01_business-goals.adoc[tag=vision]
+\include::../req42-chapters/01_business-goals.adoc[tag=vision]
 ----
 
 The req42 framework is enhanced at key points with tagged sections:

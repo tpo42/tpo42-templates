@@ -5,12 +5,15 @@
 # verbosity should be a value between 1 and 3
 verbosity = 2
 
-# By default gitlint will ignore certain commits
+# By default gitlint will ignore certain commits.
+# fixup, fixup-amend and squash commits are back on gitlint's default of being ignored:
+# their messages exist only until `rebase --autosquash` removes them, so checking them
+# would block the very workflow they belong to.
 ignore-merge-commits=false
 ignore-revert-commits=true
-ignore-fixup-commits=false
-ignore-fixup-amend-commits=false
-ignore-squash-commits=false
+ignore-fixup-commits=true
+ignore-fixup-amend-commits=true
+ignore-squash-commits=true
 
 # Ignore any data sent to gitlint via stdin
 ignore-stdin=true

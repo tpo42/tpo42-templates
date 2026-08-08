@@ -1,0 +1,22 @@
+# .editorconfig — whitespace hygiene only, one SSOT for every filetype in this repo.
+#
+# Deliberately NO syntax or style rules (indent_size, indent_style): those belong to the
+# dedicated formatters. A second place for them violates SPOT and drifts apart from
+# whatever the formatter actually does.
+#
+# Enforced by editorconfig-checker (`ec`) in lefthook.yml, which replaces the separate
+# trailing-whitespace, end-of-file-fixer and mixed-line-ending hooks that
+# .pre-commit-config.yaml carried one per concern.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Markdown: trailing whitespace can be a hard line break. AsciiDoc needs no exception —
+# its hard break is a trailing '+', which is not whitespace.
+[*.md]
+trim_trailing_whitespace = false

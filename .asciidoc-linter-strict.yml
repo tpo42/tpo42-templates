@@ -1,0 +1,15 @@
+# .asciidoc-linter-strict.yml — everything on, for deliberate whitespace work.
+#
+# Invoked by `lefthook run lint-strict`, never by a git hook. Use it when touching
+# whitespace or section structure, so the findings the default profile suppresses become
+# visible again for the files you are actually working on.
+#
+# Expect the tag-boundary findings described in .asciidoc-linter.yml. They are known and
+# systematic; what you are looking for is anything that is *not* one of those.
+#
+# If that manual reading ever becomes tedious, the next step is comparing the output
+# against a recorded set of known findings. That buys automation at the price of a
+# baseline file to maintain — the same upkeep that made gitleaks preferable to
+# detect-secrets. Worth doing only if upstream stays silent long enough to justify it.
+
+rules: {}

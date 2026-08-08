@@ -1,0 +1,8 @@
+# .hadolint.yaml — lints container/*.Containerfile via lefthook.
+#
+# DL3008 (pin apt package versions) is ignored on purpose. These are linting images,
+# rebuilt whenever a pin below them moves; freezing Debian package versions would block
+# security updates for no reproducibility gain that the image tag does not already give.
+# The versions that do matter — the prebuilt binaries — are pinned by ARG.
+ignored:
+  - DL3008

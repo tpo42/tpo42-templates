@@ -1,0 +1,75 @@
+# Provenance for the framework-developer path — where lefthook's tools come from on a
+# developer machine. lefthook.yml itself never names a container; lefthook-local.yml
+# points its templates at these services. On GitHub Actions none of this is used: the
+# runner is a VM, the templates stay empty, and the workflow installs the tools.
+#
+# Warm runners on purpose. `command: sleep infinity` plus `docker compose exec` means
+# one container start per session instead of one per job — with eight jobs per commit
+# that is the difference between a hook you keep and a hook you disable.
+#
+# Two images are consumed, two are built locally as accepted technical debt:
+#   adoc, dtc   — published upstream, consumed
+#   alint, mini — built here until there is something to consume (see container/)
+#
+# There is no automatic version tracking. pre-commit's `autoupdate` (weekly, via
+# pre-commit.ci) does not survive the migration, and neither the image tags here nor
+# the ARG pins in container/*.Containerfile are bumped by anything today. Wiring that
+# up is a follow-up, not a solved problem.
+
+name: tpo42-templates
+
+services:
+
+  # Documentation toolchain — validate, asciidoctor, asciidoctor-pdf. Floating major,
+  # matching how this image is already consumed elsewhere; pull on update.
+  tpo42-tpl-adoc:
+    image: ghcr.io/tpo42/adoc:0
+    volumes:
+      - .:/workspace
+    command: ["sleep", "infinity"]
+    working_dir: /workspace
+
+  # asciidoc-linter — parses AsciiDoc independently of Asciidoctor, so it needs no
+  # version integrity with the build and stays out of the documentation image.
+  tpo42-tpl-alint:
+    image: tpo42/asciidoc-linter:local
+    build:
+      context: container
+      dockerfile: asciidoc-linter.Containerfile
+    volumes:
+      - .:/workspace
+    command: ["sleep", "infinity"]
+    working_dir: /workspace
+
+  # docToolchain — pinned, because upstream is actively working on several topics.
+  # Which of its diagnostics become a gate is still an open survey task (plan P0), so
+  # no lefthook job dispatches here yet.
+  tpo42-tpl-dtc:
+    image: doctoolchain/doctoolchain:v3.5.0
+    volumes:
+      - .:/workspace
+    command: ["sleep", "infinity"]
+    working_dir: /workspace
+
+  # The fast, non-build fleet: ec, yamllint, actionlint, dclint, hadolint, gitleaks,
+  # gitlint, jq.
+  tpo42-tpl-mini:
+    image: tpo42/mini-qa:local
+    build:
+      context: container
+      dockerfile: mini.Containerfile
+    volumes:
+      - .:/workspace
+    # gitlint asks git for user.name, and the container never sees ~/.gitconfig. Neither
+    # GIT_AUTHOR_* nor GIT_COMMITTER_* answer that question — they name the author of a
+    # commit, not the configuration. git's env-based configuration does, since 2.31, and
+    # it is the one mechanism that works identically in a container and on a CI runner.
+    # Values come from .env, which is git-ignored and created once — see the README.
+    environment:
+      GIT_CONFIG_COUNT: "2"
+      GIT_CONFIG_KEY_0: user.name
+      GIT_CONFIG_VALUE_0: ${GIT_USER_NAME:?set GIT_USER_NAME in .env — see README, Local lefthook Setup}
+      GIT_CONFIG_KEY_1: user.email
+      GIT_CONFIG_VALUE_1: ${GIT_USER_EMAIL:?set GIT_USER_EMAIL in .env — see README, Local lefthook Setup}
+    command: ["sleep", "infinity"]
+    working_dir: /workspace

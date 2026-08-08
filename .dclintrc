@@ -1,0 +1,13 @@
+# .dclintrc — dclint configuration. Severity: 0 disabled, 1 warning, 2 error.
+#
+# no-build-and-image is disabled. The Compose specification explicitly allows both keys
+# together: `build` says how to build, `image` says what to tag the result. That is
+# exactly our case for the two locally built linting images.
+#
+# Keeping the names is not cosmetic. A developer working on a dozen projects with nearly
+# identical compose files ends up with a screenful of containers; images called
+# tpo42/asciidoc-linter and tpo42/mini-qa are findable, generated names are not. The
+# names are also the ones these images will be published under once they leave the
+# technical-debt stage, so dropping them now would only mean reinstating them later.
+rules:
+  no-build-and-image: 0

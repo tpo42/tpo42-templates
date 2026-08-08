@@ -1,6 +1,10 @@
 .*.sw?
 *.bak
 *~
+# host-local lefthook overrides — where the tools come from is not a repository decision
+lefthook-local.yml
+# host-local compose values — your git identity, for tools running in a container
+.env
 build/
 .gradle/
 .vscode/
