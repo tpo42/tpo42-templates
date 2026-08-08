@@ -1,0 +1,42 @@
+# Dependabot — what it can reach of this repository's pinned versions.
+#
+# The commit-message prefixes are not cosmetic. .gitlint exempts dependabot from T1 and
+# body-min-length, but not from the conventional-commits rule, and the quality-gates
+# workflow checks every commit message in a pull-request range. Without a prefix that
+# names a known type, every Dependabot pull request would fail its own gate.
+#
+# What Dependabot cannot see here: the ARG-pinned release binaries in
+# container/mini.Containerfile — editorconfig-checker, actionlint, gitleaks, hadolint,
+# dclint — plus lefthook in the workflow and the pip pins. Those are versions in shell
+# strings, not in a manifest any ecosystem understands. Bumping them stays manual, which
+# is the part of pre-commit's weekly autoupdate that nothing replaces yet.
+---
+version: 2
+
+updates:
+  # Actions used by the workflows.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+
+  # Base images of the two locally built tool containers. Dependabot matches any file
+  # whose name contains "containerfile" or "dockerfile", so *.Containerfile is covered.
+  - package-ecosystem: docker
+    directory: /container
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: build
+
+  # The consumed images: the documentation toolchain and docToolchain itself. The
+  # floating major tag stays as it is — Dependabot has nothing to offer there, which is
+  # the point of pulling on update instead.
+  - package-ecosystem: docker-compose
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: build

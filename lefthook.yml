@@ -55,6 +55,11 @@ pre-commit:
       glob: ".github/workflows/*.{yml,yaml}"
       run: "{mini} check-jsonschema --builtin-schema vendor.github-workflows {staged_files}"
 
+    - name: dependabot-schema
+      tags: [mini, ci]
+      glob: ".github/dependabot.{yml,yaml}"
+      run: "{mini} check-jsonschema --builtin-schema vendor.dependabot {staged_files}"
+
     # Workflow semantics — expressions, runner labels, action inputs.
     - name: actionlint
       tags: [mini, ci]
