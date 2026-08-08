@@ -1,0 +1,121 @@
+# Quality gates — the same fleet a developer runs locally, on the same containers.
+#
+# A runner is a VM, so the tools could be installed natively here. They are not, on
+# purpose: eight tools installed by hand would drift from docker-compose.yml, and that
+# drift is exactly what the domain/mini split exists to prevent. This way the runner
+# needs one native tool — lefthook — and everything else is version-identical with a
+# developer machine. The images are built here rather than pulled, because running a
+# registry is not this project's business.
+#
+# lefthook.yml still names no container. The workflow fills its templates the same way a
+# developer does, only from a step instead of by hand.
+#
+# The split follows what a hook can and cannot see. The file fleet checks the current
+# state and therefore runs everywhere. The range checks — secrets across a series of
+# commits, and one message per commit — cannot be expressed as a pre-commit hook at all,
+# and only a pull request has a range. On main there is nothing to add: everything there
+# arrived through a pull request that was already checked.
+---
+name: quality gates
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  contents: read
+
+env:
+  LEFTHOOK_VERSION: "2.1.10"
+  # gitlint asks git who you are, and a container never sees a ~/.gitconfig. These two
+  # feed git's env-based configuration through docker-compose.yml — the same mechanism a
+  # developer supplies from .env.
+  GIT_USER_NAME: github-actions
+  GIT_USER_EMAIL: github-actions@users.noreply.github.com
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      # The pull-request head, not the synthetic merge commit: the range checks below
+      # report on commits an author actually wrote and can amend.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Install lefthook
+        run: |
+          curl -fsSL -o lefthook \
+            "https://github.com/evilmartians/lefthook/releases/download/v${LEFTHOOK_VERSION}/lefthook_${LEFTHOOK_VERSION}_Linux_x86_64"
+          sudo install -m0755 lefthook /usr/local/bin/lefthook
+          rm -f lefthook
+          lefthook version
+
+      - name: Point the templates at the containers
+        run: |
+          cat > lefthook-local.yml <<'EOF'
+          templates:
+            adoc: docker compose exec -T tpo42-tpl-adoc
+            alint: docker compose exec -T tpo42-tpl-alint
+            dtc: docker compose exec -T tpo42-tpl-dtc
+            mini: docker compose exec -T tpo42-tpl-mini
+          EOF
+
+      # tpo42-tpl-dtc is left out: no job dispatches into it yet, and the docToolchain
+      # image does not stay up on `sleep infinity`.
+      - name: Start the tool containers
+        run: docker compose up -d tpo42-tpl-adoc tpo42-tpl-alint tpo42-tpl-mini
+
+      # {staged_files} is empty on a runner, hence --all-files.
+      - name: Run the hook fleet
+        run: lefthook run pre-commit --all-files --no-auto-install
+
+      # Everything below needs a range, so it only applies to pull requests. Findings are
+      # collected rather than raised on the first one: a contributor should see every
+      # message that needs amending in one pass, not one per round trip.
+      - name: Check the pull-request range
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          set -u
+          # The checkout is complete (fetch-depth: 0), but the base branch is not among
+          # the refs it brings along.
+          git fetch --no-tags origin "${BASE_REF}"
+          base="$(git merge-base FETCH_HEAD HEAD)"
+          rc=0
+
+          echo "== secrets across ${base}..HEAD =="
+          # `detect --log-opts` walks every commit's patch, so a secret that was added
+          # and later removed is still found. The fleet's own `protect --staged` cannot
+          # see that, and on a runner it sees nothing at all.
+          docker compose exec -T tpo42-tpl-mini \
+            gitleaks detect --log-opts="${base}..HEAD" --redact --no-banner || rc=1
+
+          echo "== commit messages in ${base}..HEAD =="
+          # Inside the repository and addressed relatively, because gitlint reads this
+          # file from inside a container that only has the workspace bind-mounted. A
+          # path from mktemp would exist on the runner and nowhere else. Under .git so
+          # the messages never look like working-tree files to the other checks.
+          msgdir=".git/tpo42-commit-messages"
+          rm -rf -- "${msgdir}"
+          mkdir -p "${msgdir}"
+          trap 'rm -rf -- "${msgdir}"' EXIT
+          # --no-merges: merge commits are not written by hand and are not expected to
+          # follow Conventional Commits.
+          for commit in $(git rev-list --no-merges "${base}..HEAD"); do
+            git log --format=%B -n1 "${commit}" > "${msgdir}/${commit}"
+            if ! lefthook run commit-msg --no-auto-install "${msgdir}/${commit}"; then
+              echo "::error ::commit message rejected: ${commit}"
+              rc=1
+            fi
+          done
+
+          exit "${rc}"

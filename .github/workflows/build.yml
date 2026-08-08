@@ -12,8 +12,10 @@ on:
 
 jobs:
   create-docs:
-    uses: rehsack/tpo42-templates/.github/workflows/run-doctoolchain.yml@feature/doctoolchain-build
-    secrets: inherit # pragma: allowlist secret
+    # The reusable workflow lives in this repository, so reference it locally. Pointing
+    # at a branch of a fork meant the build could differ from what is checked in here.
+    uses: ./.github/workflows/run-doctoolchain.yml
+    secrets: inherit
     with:
       dtc-process-targets: generatePDF generateHTML
       dtc-output-pattern: build/
