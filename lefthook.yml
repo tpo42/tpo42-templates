@@ -78,6 +78,26 @@ pre-commit:
       glob: "{Containerfile,Dockerfile,*.Containerfile,*.dockerfile}"
       run: "{mini} hadolint {staged_files}"
 
+    # Skills and agent instructions arrive as Markdown, so it gets the same treatment as
+    # every other filetype here. Checking rather than rewriting, like shfmt elsewhere: a
+    # violation flips the exit code and the author decides, instead of the hook editing
+    # files underneath them.
+    #
+    # Line wrapping is left as written. mdformat can reflow to a fixed width, and the
+    # previous pre-commit configuration did at 120, but reflowed prose turns a one-word
+    # edit into a paragraph-sized diff. Everything else — list markers, emphasis, code
+    # fences, heading style — is still normalised.
+    #
+    # --number keeps ordered lists numbered as written. Without it every item becomes
+    # "1.", which renders identically and reads worse in the source — and the source is
+    # what both a reviewer and an agent see.
+    #
+    # mdformat-frontmatter is why the YAML header of a SKILL.md survives untouched.
+    - name: mdformat
+      tags: [mini, markdown, format]
+      glob: "*.md"
+      run: "{mini} mdformat --check --number {staged_files}"
+
     # git-native, so deliberately without a template: git is part of the host floor.
     - name: merge-markers
       tags: [mini]

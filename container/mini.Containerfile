@@ -42,7 +42,10 @@ RUN apt-get update \
 # action inputs. Neither subsumes the other, so both are wired.
 RUN pip install --no-cache-dir --break-system-packages \
         'gitlint~=0.19' \
-        'check-jsonschema~=0.37'
+        'check-jsonschema~=0.37' \
+        'mdformat~=1.0' \
+        'mdformat-gfm~=1.0' \
+        'mdformat-frontmatter~=2.1'
 
 # --- 2. pinned prebuilt binaries ---------------------------------------------
 ARG EC_VERSION="3.11.1"
@@ -82,6 +85,7 @@ RUN ec --version \
     && yamllint --version \
     && gitlint --version \
     && check-jsonschema --version \
+    && mdformat --version \
     && jq --version
 
 # git refuses to operate on a bind-mounted worktree owned by another uid unless it is
