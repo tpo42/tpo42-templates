@@ -44,15 +44,29 @@ services:
   # docToolchain — pinned, because upstream is actively working on several topics.
   # Which of its diagnostics become a gate is still an open survey task (plan P0), so
   # no lefthook job dispatches here yet.
+  # docToolchain — generatePDF / generateHTML. Unlike the other services this one
+  # overrides the ENTRYPOINT rather than the command: the image entrypoint is
+  # ["/bin/bash","-c","/bin/bash"], which swallows any command appended to it, so a
+  # `command: sleep infinity` never runs and the container exits immediately.
+  #
+  # The repository is mounted at /project, which is this image's working directory, and
+  # not at /workspace like the others — paths in a dtc invocation are relative to it.
+  #
+  # The Gradle cache is a named volume so the warm-up is paid once per host instead of
+  # once per invocation. That is the difference between roughly forty seconds and two.
   tpo42-tpl-dtc:
     image: doctoolchain/doctoolchain:v3.5.0
     volumes:
-      - .:/workspace
-    command: ["sleep", "infinity"]
-    working_dir: /workspace
+      - .:/project
+      - dtc-gradle-cache:/home/dtcuser/.gradle
+    environment:
+      DTC_HEADLESS: "true"
+      DTC_OPTS: "-PmainConfigFile=docToolchainConfig.groovy --warning-mode=none -Dfile.encoding=UTF-8"
+    entrypoint: ["sleep", "infinity"]
+    platform: linux/amd64
 
   # The fast, non-build fleet: ec, yamllint, actionlint, dclint, hadolint, gitleaks,
-  # gitlint, jq.
+  # gitlint, mdformat, check-jsonschema, jq.
   tpo42-tpl-mini:
     image: tpo42/mini-qa:local
     build:
@@ -73,3 +87,6 @@ services:
       GIT_CONFIG_VALUE_1: ${GIT_USER_EMAIL:?set GIT_USER_EMAIL in .env — see README, Local lefthook Setup}
     command: ["sleep", "infinity"]
     working_dir: /workspace
+
+volumes:
+  dtc-gradle-cache:
