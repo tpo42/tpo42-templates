@@ -23,7 +23,7 @@ services:
   # Documentation toolchain — validate, asciidoctor, asciidoctor-pdf. Floating major,
   # matching how this image is already consumed elsewhere; pull on update.
   tpo42-tpl-adoc:
-    image: ghcr.io/tpo42/adoc:0
+    image: ghcr.io/tpo42/adoc:1
     volumes:
       - .:/workspace
     command: ["sleep", "infinity"]
