@@ -15,7 +15,7 @@
 # a reproducible rebuild; the image tag carries the version discipline either way, the
 # same way ghcr.io/tpo42/adoc:0 already does.
 
-FROM python:3.14-slim
+FROM python:3.15-slim
 
 ARG ASCIIDOC_LINTER_REF="main"
 
